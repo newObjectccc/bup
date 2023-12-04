@@ -1,48 +1,47 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
 import ora from 'ora';
+import choosePkgMgr from '../common/choose-pkg-manager.js';
+import { ESLINT_FORMAT_TYPE } from '../helper/constant.js';
+import { stderrHdr, stdoutHdr } from '../helper/output.js';
+import { installEslint, settingEslintrc } from './eslint-common.js';
 const program = new Command();
 
-
-const FORMAT_TYPE = ['js', 'cjs', 'json', 'yaml', 'yml', 'pkg']
-
-const spinner = ora({
-  text: `Writting eslintrc...`,
+const settingEslintOra = ora({
+  text: `Setting eslint...`,
 });
-const veriEslintParamsStdin = ora({
-  text: 'Loading ESLint Options',
+const loadingEslintOra = ora({
+  text: 'Download ESLint',
 });
 
 program
   .option('-f, --format <char>', 'no common eslintrc.js')
   .action(async (fmt) => {
-    veriEslintParamsStdin.start();
+    try {
+      // verify whether the parameters are valid
+      if (fmt.format === void 0) fmt.format = 'js'
+      if (!ESLINT_FORMAT_TYPE.includes(fmt.format)) {
+        stderrHdr(loadingEslintOra, ` Parameter "--format" must be one of "${ESLINT_FORMAT_TYPE.join('|')}"`)
+        return
+      }
 
-    await awaFn()
-    if (!FORMAT_TYPE.includes(fmt.format)) {
-      veriEslintParamsStdin.text = chalk.red('Loading fail')
-      veriEslintParamsStdin.fail();
-      return
+      // download eslint
+      const { pkgManager } = await choosePkgMgr()
+      loadingEslintOra.start();
+      await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(loadingEslintOra, data) })
+      loadingEslintOra.succeed('ESLint download succeed');
+
+      // setting eslintrc
+      settingEslintOra.prefixText = chalk.dim('[info]');
+      settingEslintOra.start()
+      settingEslintOra.spinner = 'moon'
+      settingEslintOra.text = chalk.green('Setting ESLint...')
+      const writeRes = await settingEslintrc(fmt.format)
+      settingEslintOra.succeed(`${writeRes}, completed!`)
+    } catch (error) {
+      stderrHdr(loadingEslintOra)
+      stderrHdr(settingEslintOra)
     }
-
-    veriEslintParamsStdin.succeed('Loading succeed');
-    await awaFn()
-    spinner.prefixText = chalk.dim('[info]');
-    spinner.start()
-    await awaFn()
-    spinner.spinner = 'moon'
-    spinner.text = 'Setting ESLint...'
-    await awaFn()
-    spinner.succeed('All done!')
   });
 
 program.parse();
-
-function awaFn() {
-  return new Promise((r, j) => {
-    setTimeout(() => {
-      r('xxx')
-    }, 2000)
-  })
-}
-
