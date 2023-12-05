@@ -68,7 +68,7 @@ function settingCommitlintConfig() {
     const cwd = process.cwd();
     const filename = path.join(cwd, 'commitlint.config.js')
     const tmp = `
-      export default {
+      module.exports = {
         extends: ['@commitlint/config-conventional'],
         // 添加你的规则 
         rules: {
