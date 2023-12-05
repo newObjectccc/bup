@@ -24,7 +24,8 @@ export async function installEslint(options) {
   })
 }
 
-export function settingEslintrc(fmt) {
+export function settingEslintrc(options) {
+  const { fmt, fwk } = options
   return new Promise((resolve, reject) => {
     if (!ESLINT_FORMAT_TYPE.includes(fmt)) reject('Parameter "--format" must be one of "js|cjs|json|yaml|yml|pkg"')
     if (fmt === 'pkg') {
@@ -33,7 +34,9 @@ export function settingEslintrc(fmt) {
     }
     const cwd = process.cwd();
     const filename = path.join(cwd, `eslintrc.${fmt}`)
-    const tmp = ESLINT_TEMPLATE[fmt]
+    const tmpFn = ESLINT_TEMPLATE[fmt]
+    const fwkExts = ESLINT_EXTENSION_ON_FRAMEWORK[fwk]
+    const tmp = tmpFn(fwkExts)
     fs.writeFile(filename, tmp, (err) => {
       reject(err)
     })

@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
 import ora from 'ora';
+import chooseFramework from '../common/choose-framework.js';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import { ESLINT_FORMAT_TYPE } from '../helper/constant.js';
 import { stderrHdr, stdoutHdr } from '../helper/output.js';
@@ -31,12 +32,13 @@ program
       await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(loadingEslintOra, data) })
       loadingEslintOra.succeed('ESLint download succeed');
 
+      const fwk = chooseFramework()
       // setting eslintrc
       settingEslintOra.prefixText = chalk.dim('[info]');
       settingEslintOra.start()
       settingEslintOra.spinner = 'moon'
       settingEslintOra.text = chalk.green('Setting ESLint...')
-      const writeRes = await settingEslintrc(fmt.format)
+      const writeRes = await settingEslintrc({ fmt: fmt.format, fwk })
       settingEslintOra.succeed(`${writeRes}, completed!`)
     } catch (error) {
       stderrHdr(loadingEslintOra)
