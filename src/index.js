@@ -13,6 +13,7 @@ program
   .version(`v${packageJson?.version ?? '0.0.1'}`)
   .description('bup is useful scaffold to help you setting your project')
   .command('eslint', 'start setting eslint')
+  .command('changelog', 'start setting changelog')
   .command('prettier', 'start setting prettier')
   .command('lint-staged', 'start setting lint-staged')
   .command('commitlint', 'start setting commitlint')
