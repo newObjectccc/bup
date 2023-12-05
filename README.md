@@ -39,13 +39,13 @@ bup eslint -f "yml"
 for commitlint example:
 
 ```bash
-bup commitlint"
+bup commitlint
 ```
 
 for changelog example:
 
 ```bash
-bup changelog -c"
+bup changelog -c
 ```
 
 ## Features
