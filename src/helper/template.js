@@ -214,3 +214,43 @@ export const ESLINT_TEMPLATE = {
         version: 'detect' # 自动检测所安装的 React 版本  
   `,
 }
+
+export const CHANGELOG_TEMP = {
+  updater: `
+    const stringifyPackage = require('stringify-package')
+    const detectIndent = require('detect-indent')
+    const detectNewline = require('detect-newline')
+
+    module.exports.readVersion = function (contents) {
+      return JSON.parse(contents).tracker.package.version;
+    }
+
+    module.exports.writeVersion = function (contents, version) {
+      const json = JSON.parse(contents)
+      let indent = detectIndent(contents).indent
+      let newline = detectNewline(contents)
+      json.tracker.package.version = version
+      return stringifyPackage(json, indent, newline)
+    }
+  `,
+  tracker: `
+    {
+      "tracker": {
+        "package": {
+          "version": "1.0.0"
+        }
+      }
+    }
+  `,
+  versionrc: `
+    const tracker = {
+      filename: 'VERSION_TRACKER.json',
+      updater: require('./standard-version-updater.js')
+    }
+
+    module.exports = {
+      bumpFiles: [tracker],
+      packageFiles: [tracker]
+    }
+  `
+}

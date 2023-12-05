@@ -1,7 +1,9 @@
 import ora from 'ora';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
+import writeFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
+import { CHANGELOG_TEMP } from '../helper/template.js';
 
 const settingChangelogOra = ora({
   text: `Setting changelog...`,
@@ -12,63 +14,46 @@ const customOra = ora({
 })
 
 export async function settingChangelogOptions(pkgManager, custom) {
-
-  startOraWithTemp(settingChangelogOra)
-  await execCmd({
-    cmdStr: `npm pkg set scripts.difflog="standard-version"`,
-    stdoutHdr: (data) => stdoutHdr(data, settingChangelogOra),
-    errMsg: 'Set scripts.difflog fail'
-  })
-
-  if (custom) {
-    startOraWithTemp(customOra)
-    await installPlugin({
-      pkgManager,
-      stdoutHdr: (data) => stdoutHdr(data, customOra),
-      plugin: 'detect-newline detect-indent stringify-package'
+  try {
+    // set script difflog
+    startOraWithTemp(settingChangelogOra)
+    await execCmd({
+      cmdStr: `npm pkg set scripts.difflog="standard-version"`,
+      stdoutHdr: (data) => stdoutHdr(data, settingChangelogOra),
+      errMsg: 'Set scripts.difflog fail'
     })
-    customOra.text = 'Set .versionrc.js...'
-    await writeFileByTemp(`
-      const tracker = {
-        filename: 'VERSION_TRACKER.json',
-        updater: require('./standard-version-updater.js')
-      }
+    settingChangelogOra.succeed()
 
-      module.exports = {
-        bumpFiles: [tracker],
-        packageFiles: [tracker]
-      }
-    `, '.versionrc.js')
-    customOra.text = 'Set VERSION_TRACKER.json...'
-    await writeFileByTemp(`
-      {
-        "tracker": {
-          "package": {
-            "version": "1.0.0"
-          }
-        }
-      }
-    `, 'VERSION_TRACKER.json')
-    customOra.text = 'Set standard-version-updater.js...'
-    await writeFileByTemp(`
-      const stringifyPackage = require('stringify-package')
-      const detectIndent = require('detect-indent')
-      const detectNewline = require('detect-newline')
+    // customize
+    if (custom) {
+      // install detect-newline detect-indent stringify-package 
+      startOraWithTemp(customOra)
+      const installRes = await installPlugin({
+        pkgManager,
+        stdoutHdr: (data) => stdoutHdr(data, customOra),
+        plugin: 'detect-newline detect-indent stringify-package'
+      })
+      customOra.succeed(installRes)
 
-      module.exports.readVersion = function (contents) {
-        return JSON.parse(contents).tracker.package.version;
-      }
+      // srite .versionrc.js
+      const versionrcFileOra = stdoutHdr('Set .versionrc.js...')
+      await writeFileByTemp(CHANGELOG_TEMP.versionrc, '.versionrc.js')
+      versionrcFileOra.succeed()
 
-      module.exports.writeVersion = function (contents, version) {
-        const json = JSON.parse(contents)
-        let indent = detectIndent(contents).indent
-        let newline = detectNewline(contents)
-        json.tracker.package.version = version
-        return stringifyPackage(json, indent, newline)
-      }
-    `, 'standard-version-updater.js')
-    customOra.succeed('Set standard-version customize succeed!')
+      // write VERSION_TRACKER.json
+      const trackerFileOra = stdoutHdr('Set VERSION_TRACKER.json...')
+      await writeFileByTemp(CHANGELOG_TEMP.tracker, 'VERSION_TRACKER.json')
+      trackerFileOra.succeed()
+
+      // write standard-version-updater.js
+      const updaterFileOra = stdoutHdr('Set standard-version-updater.js...')
+      await writeFileByTemp(CHANGELOG_TEMP.updater, 'standard-version-updater.js')
+      updaterFileOra.succeed()
+      customOra.succeed('Set standard-version customize succeed!')
+    }
     return true
+  } catch (error) {
+    settingChangelogOra.fail(error)
+    customOra.fail(error)
   }
-
 }

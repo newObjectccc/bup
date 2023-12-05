@@ -4,6 +4,7 @@ import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isPackageJsonExist from '../common/is-package-exist.js';
 import { stderrHdr, stdoutHdr } from '../helper/output.js';
+import { settingChangelogOptions } from './changelog-common.js';
 const program = new Command();
 
 const chiosePkgOra = ora({
@@ -37,7 +38,6 @@ program
       // setting husky
       await settingChangelogOptions(pkgManager, custom)
     } catch (error) {
-      chiosePkgOra.fail()
       stderrHdr(error, downloadPluginOra)
     }
   });
