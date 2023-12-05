@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/newObjectccc/bup/compare/v1.3.4...v1.4.0) (2023-12-05)
+
+
+### Features
+
+* **bup-commitlint:** add feature commitlint ([4c469e8](https://github.com/newObjectccc/bup/commit/4c469e80167c8eea89e606d6cda0b148d8440c48))
+* **bup-commitlint:** add prompt commit ([bf3ba4d](https://github.com/newObjectccc/bup/commit/bf3ba4d87af7cb662bedd105bfd418e10f21ea5f))
+* **bup-commitlint:** fix commitlint ([81b4318](https://github.com/newObjectccc/bup/commit/81b43181e24b6469fe005a7a876dde6d64d10f03))
+
+
+### Bug Fixes
+
+* **bup-commitlint:** add customize ([b89bcf3](https://github.com/newObjectccc/bup/commit/b89bcf3ab582360759ba8f3e97269c37556c6398))
+* **bup-commitlint:** export mjs lint cfg ([d8c7008](https://github.com/newObjectccc/bup/commit/d8c7008f8df374d37e0afdc1b35f5125a4a69baf))
+* **deps:** add commitlint ([da6d198](https://github.com/newObjectccc/bup/commit/da6d1980261cc2c4f778b2edea4e85cdbe4403bc))
+
 ### [1.3.4](https://github.com/newObjectccc/bulp/compare/v1.3.3...v1.3.4) (2023-12-05)
 
 
