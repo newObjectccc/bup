@@ -23,3 +23,9 @@ export function stderrHdr(data, ins) {
   ctx.text = chalk.redBright(`${data ?? 'Something went wrong! please send us some issues!'}`)
   ctx.fail();
 }
+
+export function startOraWithTemp(oraIns) {
+  oraIns.start()
+  oraIns.spinner = 'moon'
+  oraIns.prefixText = chalk.dim('[info]')
+}
