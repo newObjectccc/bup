@@ -11,7 +11,7 @@ async function installPlugin(options) {
     })
     cmd.on('close', (code) => {
       if (code === 0) {
-        resolve(`Download plugin succeed!`)
+        resolve(`Download ${normalaizePlug} succeed!`)
       } else {
         reject(`Installing ${normalaizePlug} went wrong!`)
       }
