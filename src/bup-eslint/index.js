@@ -51,7 +51,11 @@ program
       downloadPluginOra.prefixText = chalk.dim('[download]');
       downloadPluginOra.start()
       downloadPluginOra.spinner = 'moon'
-      const installPlugRes = await installPlugin({ pkgManager, stdoutHdr: (data) => stdoutHdr(downloadPluginOra, data), plugin: DEPS_NEED_TO_INSTALL[fwk.framework] })
+      const installPlugRes = await installPlugin({
+        pkgManager,
+        stdoutHdr: (data) => stdoutHdr(downloadPluginOra, data),
+        plugin: DEPS_NEED_TO_INSTALL[fwk.framework]
+      })
       downloadPluginOra.succeed(`${installPlugRes}, all completed!`)
     } catch (error) {
       stderrHdr(loadingEslintOra)
