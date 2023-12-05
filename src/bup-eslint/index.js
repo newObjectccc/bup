@@ -54,9 +54,8 @@ program
       const installPlugRes = await installPlugin({ pkgManager, stdoutHdr: (data) => stdoutHdr(downloadPluginOra, data), plugin: DEPS_NEED_TO_INSTALL[fwk.framework] })
       downloadPluginOra.succeed(`${installPlugRes}, all completed!`)
     } catch (error) {
-      console.log(error, '====>');
       stderrHdr(loadingEslintOra)
-      stderrHdr(settingEslintOra)
+      stderrHdr(settingEslintOra, error)
     }
   });
 
