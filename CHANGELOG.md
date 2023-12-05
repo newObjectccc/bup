@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/newObjectccc/bulp/compare/v1.3.3...v1.3.4) (2023-12-05)
+
+
+### Bug Fixes
+
+* **bup-eslint:** fix ora output ([95819d3](https://github.com/newObjectccc/bulp/commit/95819d354f38962ffab23dbc28e851e3cca88f15))
+* **bup-eslint:** update info ([0575a1e](https://github.com/newObjectccc/bulp/commit/0575a1efe6c7eb8fbb6c41fdb56e21020fad4ecd))
+* **contant.js:** deps update ([c0beaca](https://github.com/newObjectccc/bulp/commit/c0beaca3021c067bfcda93b46dcf20a1d84e9566))
+
 ### [1.3.3](https://github.com/newObjectccc/bulp/compare/v1.3.2...v1.3.3) (2023-12-05)
 
 
