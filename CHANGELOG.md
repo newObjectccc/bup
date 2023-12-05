@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2023-12-05)
+
+
+### Features
+
+* **.npmignore:** configure ignore ([e82e5e2](https://github.com/newObjectccc/bup/commit/e82e5e2be3e7b2390d48645a820c239923b06e60))
+* **bup-changelog:** add changelog customize ([ca73309](https://github.com/newObjectccc/bup/commit/ca733091ed5b635f6307cac8e86e58149dbe2a94))
+* **bup-changelog:** add cmd ([31e4dc0](https://github.com/newObjectccc/bup/commit/31e4dc044e0bbf4bed5c5049d7ce2dadd7f443f5))
+* **bup-changelog:** add feature ([fc4526a](https://github.com/newObjectccc/bup/commit/fc4526a39794350eaefc842d39045d3305005729))
+* **bup-commitlint:** add feature commitlint ([4c469e8](https://github.com/newObjectccc/bup/commit/4c469e80167c8eea89e606d6cda0b148d8440c48))
+* **bup-commitlint:** add prompt commit ([bf3ba4d](https://github.com/newObjectccc/bup/commit/bf3ba4d87af7cb662bedd105bfd418e10f21ea5f))
+* **bup-commitlint:** fix commitlint ([81b4318](https://github.com/newObjectccc/bup/commit/81b43181e24b6469fe005a7a876dde6d64d10f03))
+* **bup-eslint:** add choose framework ([5beb94e](https://github.com/newObjectccc/bup/commit/5beb94e1ac582c97447bc4f9c4399fa923f469e9))
+* **bup-eslint:** eslint setting ([0584860](https://github.com/newObjectccc/bup/commit/0584860686503100329d562cfb4ee1af5b808fdb))
+* **bup-eslint:** expose error to customer ([3f721c4](https://github.com/newObjectccc/bup/commit/3f721c4e42dace1b2db049d4cbd7c61e29eeca39))
+* **changelog:** add changelog feature ([4a9b1cd](https://github.com/newObjectccc/bup/commit/4a9b1cdc3b48cca68ae1847390ce6464951fa20b))
+* **common:** add install plugin func ([4fd0f3f](https://github.com/newObjectccc/bup/commit/4fd0f3f91abc1859b46f07acce7a28ac857a6e04))
+* **common:** add write file func ([02ca765](https://github.com/newObjectccc/bup/commit/02ca76562affcafa95ae28b5b1b4106e9d790afb))
+* **helper:** add contant type ([70c9a99](https://github.com/newObjectccc/bup/commit/70c9a9938626a739ff0fa4e66d50ab276ea09e8b))
+* init ([faaa2eb](https://github.com/newObjectccc/bup/commit/faaa2eb8dd68347ad80857a7426c85e8eccb33b5))
+* **output.js:** add ora start func ([0378324](https://github.com/newObjectccc/bup/commit/03783246bd23b140a694d6cc9aa8d1e16d89d2fe))
+* **template:** add eslint temp ([17b9041](https://github.com/newObjectccc/bup/commit/17b90414e42bd7b26b797ab8af2ccc12f727e710))
+* **template:** template update ([0bcd0fc](https://github.com/newObjectccc/bup/commit/0bcd0fcf6760fb83162f626e6d5d3dd512a7c9b1))
+
+
+### Bug Fixes
+
+* **bup-changelog:** customize deps version lock ([89f2a5c](https://github.com/newObjectccc/bup/commit/89f2a5c58d95a3d186b81c335ba1c3bff5657f76))
+* **bup-changelog:** customize notice ([e13d911](https://github.com/newObjectccc/bup/commit/e13d91185177f21e853b7bdee52ce4e218d6e0c0))
+* **bup-commitlint:** add customize ([b89bcf3](https://github.com/newObjectccc/bup/commit/b89bcf3ab582360759ba8f3e97269c37556c6398))
+* **bup-commitlint:** export mjs lint cfg ([d8c7008](https://github.com/newObjectccc/bup/commit/d8c7008f8df374d37e0afdc1b35f5125a4a69baf))
+* **bup-commitlint:** fix code ([87b24f7](https://github.com/newObjectccc/bup/commit/87b24f7f348c25d5cda3e33fa0b94b34fba3acf0))
+* **bup-commitlint:** update temp ([7dfbd86](https://github.com/newObjectccc/bup/commit/7dfbd86a60ac981a1d4303844f5db6244b7be8c0))
+* **bup-eslint:** fix eslint code ([635c709](https://github.com/newObjectccc/bup/commit/635c7099acc6830b9d473d54e3e66c136f51c03d))
+* **bup-eslint:** fix ora output ([95819d3](https://github.com/newObjectccc/bup/commit/95819d354f38962ffab23dbc28e851e3cca88f15))
+* **bup-eslint:** update info ([0575a1e](https://github.com/newObjectccc/bup/commit/0575a1efe6c7eb8fbb6c41fdb56e21020fad4ecd))
+* **contant.js:** deps update ([c0beaca](https://github.com/newObjectccc/bup/commit/c0beaca3021c067bfcda93b46dcf20a1d84e9566))
+* **contant.js:** update vue deps ([1cc0835](https://github.com/newObjectccc/bup/commit/1cc08355125c387725fea80843ddcb25b349a684))
+* **deps:** add commitlint ([da6d198](https://github.com/newObjectccc/bup/commit/da6d1980261cc2c4f778b2edea4e85cdbe4403bc))
+* **eslintrc.js:** remove test ([ca18c24](https://github.com/newObjectccc/bup/commit/ca18c24d611029f7d24539bde029b827a667ec5f))
+* **index.js:** update pkg path ([4a9fd92](https://github.com/newObjectccc/bup/commit/4a9fd927a663353d4b5dbf79e6aaabb7cdafd7e5))
+* **package.json:** fix spell ([217bb46](https://github.com/newObjectccc/bup/commit/217bb469f4710b5228c32c101e4a5fa9d2e6439e))
+* **template.js:** update @babel/eslint-parser ([b876804](https://github.com/newObjectccc/bup/commit/b876804e8b812fb2850b476b58d151642d1a7f1f))
+
 ## [1.4.0](https://github.com/newObjectccc/bup/compare/v1.3.4...v1.4.0) (2023-12-05)
 
 
