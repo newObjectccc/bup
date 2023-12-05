@@ -8,6 +8,6 @@ export const CMD_ON_PKG_MANAGER = {
 }
 
 export const DEPS_NEED_TO_INSTALL = {
-  vue: ['babel-eslint', 'eslint-plugin-vue'],
+  vue: ['@babel/eslint-parser', '@vue/prettier', 'eslint-plugin-vue'],
   react: ['eslint-plugin-react']
 }
