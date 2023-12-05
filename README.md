@@ -30,24 +30,32 @@ for help:
 bup -h
 ```
 
-for example:
+for eslint example:
 
 ```bash
 bup eslint -f "yml"
 ```
 
+for commitlint example:
+
+```bash
+bup commitlint"
+```
+
 ## Features
 
-- eslint automate configure
+- eslint integrate
+- commintlint integrate
 
 ## Roadmap
 
-- prettier automate config
-- lint-staged automate config
-- commintlint automate config
-- mockjs automate config
-- jest automate config
-- cypress automate config
+- prettier automate setting
+- lint-staged automate setting
+- commintlint automate setting
+- mockjs automate setting
+- jest automate setting
+- cypress automate setting
+- changelog automate setting
 
 ## Contributing
 
