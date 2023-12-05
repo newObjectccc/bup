@@ -9,7 +9,6 @@ async function chooseFramework() {
       choices: [
         { title: 'Vue', value: 'vue' },
         { title: 'React', value: 'react' },
-        { title: 'Angular', value: 'angular' },
       ]
     }
   ])
