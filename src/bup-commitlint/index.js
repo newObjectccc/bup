@@ -15,7 +15,8 @@ const downloadPluginOra = ora({
 });
 
 program
-  .action(async () => {
+  .option('-c, --custom', 'if specify, will use cz-customizable to customize')
+  .action(async ({ custom }) => {
     try {
       // chiose pakcage manager
       const { pkgManager } = await choosePkgMgr()
@@ -34,6 +35,11 @@ program
 
       // setting husky
       await execSettingHuskyAndCommitlint(pkgManager)
+
+      // customize
+      if (custom) {
+        //...
+      }
     } catch (error) {
       chiosePkgOra.fail()
       stderrHdr(error, downloadPluginOra)
