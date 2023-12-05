@@ -9,12 +9,9 @@ async function installPlugin(options) {
     cmd.stdout.on('data', (data) => {
       stdoutHdr(data)
     })
-    cmd.stderr.on('data', (data) => {
-      reject(data)
-    })
     cmd.on('close', (code) => {
-      code == 0 && resolve(`Download plugin succeed!`)
-      reject(code)
+      code === 0 && resolve(`Download plugin succeed!`)
+      reject(`Installing ${normalaizePlug} went wrong!`)
     })
   })
 }

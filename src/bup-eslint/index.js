@@ -48,7 +48,6 @@ program
       settingEslintOra.succeed(`${writeRes}, completed!`)
 
       // install plugin
-      downloadPluginOra.prefixText = chalk.dim('[download]');
       downloadPluginOra.start()
       downloadPluginOra.spinner = 'moon'
       const installPlugRes = await installPlugin({
@@ -58,8 +57,9 @@ program
       })
       downloadPluginOra.succeed(`${installPlugRes}, all completed!`)
     } catch (error) {
-      stderrHdr(loadingEslintOra)
-      stderrHdr(settingEslintOra, error)
+      loadingEslintOra.fail()
+      settingEslintOra.fail()
+      stderrHdr(downloadPluginOra, error)
     }
   });
 
