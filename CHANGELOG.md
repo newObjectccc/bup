@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/newObjectccc/bulp/compare/v1.3.1...v1.3.2) (2023-12-05)
+
+
+### Bug Fixes
+
+* **index.js:** update pkg path ([4a9fd92](https://github.com/newObjectccc/bulp/commit/4a9fd927a663353d4b5dbf79e6aaabb7cdafd7e5))
+* **package.json:** fix spell ([217bb46](https://github.com/newObjectccc/bulp/commit/217bb469f4710b5228c32c101e4a5fa9d2e6439e))
+
 ### [1.3.1](https://github.com/newObjectccc/bulp/compare/v1.3.0...v1.3.1) (2023-12-05)
 
 
