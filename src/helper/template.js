@@ -1,5 +1,5 @@
 export const ESLINT_TEMPLATE = {
-  cjs: (fwk) => `
+  vue_js: `
     module.exports = {
       // 指定为根配置文件
       root: true,
@@ -7,7 +7,11 @@ export const ESLINT_TEMPLATE = {
       env: {
         node: true
       },
-      ${ESLINT_EXTENSION_ON_FRAMEWORK[fwk + 'Tmp']},
+      extends: [
+        'plugin:vue/essential',
+        'eslint:recommended',
+        '@vue/prettier'
+      ],
       // 使用Babel作为解析器
       parserOptions: {
         parser: 'babel-eslint'
@@ -24,32 +28,7 @@ export const ESLINT_TEMPLATE = {
       }
     }
   `,
-  js: (fwk) => `
-    module.exports = {
-      // 指定为根配置文件
-      root: true,
-      // 指定运行环境
-      env: {
-        node: true
-      },
-      ${ESLINT_EXTENSION_ON_FRAMEWORK[fwk + 'Tmp']},
-      // 使用Babel作为解析器
-      parserOptions: {
-        parser: 'babel-eslint'
-      },
-      rules: {
-        // 自定义规则可以在这里添加
-        // 例如，可以使用 "vue/no-unused-components" 来禁止未使用的组件
-        'vue/no-unused-components': 'error',
-        // 强制使用单引号
-        quotes: ['error', 'single'],
-        // 强制使用分号
-        semi: ['error', 'always'],
-        // 可以添加更多eslint规则...
-      }
-    }
-  `,
-  mjs: (fwk) => `
+  vue_mjs: `
     export default {
       // 指定为根配置文件
       root: true,
@@ -57,7 +36,11 @@ export const ESLINT_TEMPLATE = {
       env: {
         node: true
       },
-      ${ESLINT_EXTENSION_ON_FRAMEWORK[fwk + 'Tmp']},
+      extends: [
+        'plugin:vue/essential',
+        'eslint:recommended',
+        '@vue/prettier'
+      ],
       parserOptions: {
         // 使用Babel作为解析器
         parser: 'babel-eslint',
@@ -76,13 +59,17 @@ export const ESLINT_TEMPLATE = {
       }
     };
   `,
-  json: (fwk) => `
+  vue_json: `
     {
       "root": true,
       "env": {
         "node": true
       },
-      "extends": ${ESLINT_EXTENSION_ON_FRAMEWORK[fwk].replaceAll('\'', '\"')},
+      "extends": [
+        "plugin:vue/essential",
+        "eslint:recommended",
+        "@vue/prettier"
+      ],
       "parserOptions": {
         "parser": "babel-eslint"
       },
@@ -93,25 +80,14 @@ export const ESLINT_TEMPLATE = {
       }
     }
   `,
-  yaml: (fwk) => {
-    const tmp = ``
-    ESLINT_EXTENSION_ON_FRAMEWORK[fwk].map((ext, idx) => {
-      if (idx > 0) {
-        tmp = `
-          ${tmp}
-          - ${ext.replaceAll('\'', '')}
-        `
-      }
-      if (idx === 0) {
-        tmp = `- ${ext.replaceAll('\'', '')}`
-      }
-    })
-    return `
+  vue_yml: `
     root: true
     env:
       node: true
     extends:
-      ${tmp}
+      - plugin:vue/essential
+      - eslint:recommended
+      - @vue/prettier
     parserOptions:
       parser: babel-eslint
     rules:
@@ -122,54 +98,119 @@ export const ESLINT_TEMPLATE = {
       semi:
         - error
         - always
-  `
-  },
-  yml: (fwk) => {
-    const tmp = ``
-    ESLINT_EXTENSION_ON_FRAMEWORK[fwk].map((ext, idx) => {
-      if (idx > 0) {
-        tmp = `
-          ${tmp}
-          - ${ext.replaceAll('\'', '')}
-        `
-      }
-      if (idx === 0) {
-        tmp = `- ${ext.replaceAll('\'', '')}`
-      }
-    })
-    return `
-      root: true
-      env:
-        node: true
-      extends:
-        ${tmp}
-      parserOptions:
-        parser: babel-eslint
-      rules:
-        vue/no-unused-components: error
-        quotes:
-          - error
-          - single
-        semi:
-          - error
-          - always
-    `
-  }
-}
-
-export const ESLINT_EXTENSION_ON_FRAMEWORK = {
-  vueTmp: `
-    extends: [
-      'plugin:vue/essential',
-      'eslint:recommended',
-      '@vue/prettier'
-    ]
   `,
-  vue: [
-    'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/prettier'
-  ],
-  react: '',
-  angular: ''
+  react_js: `
+    module.exports = {
+      env: {
+        browser: true,
+        es6: true,
+        node: true,
+      },
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+      ],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      plugins: [
+        'react',
+      ],
+      rules: {
+        // 在这里可以添加自定义的 ESLint 规则
+      },
+      settings: {
+        react: {
+          version: 'detect', // 自动检测所安装的 React 版本
+        },
+      },
+    };  
+  `,
+  react_mjs: `
+    export default {
+      env: {
+        browser: true,
+        es6: true,
+        node: true,
+      },
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+      ],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      plugins: [
+        'react',
+      ],
+      rules: {
+        // 在这里可以添加自定义的 ESLint 规则
+      },
+      settings: {
+        react: {
+          version: 'detect', // 自动检测所安装的 React 版本
+        },
+      },
+    };
+  `,
+  react_json: `
+    {
+      "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+      ],
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+      },
+      "plugins": [
+        "react"
+      ],
+      "rules": {
+        // 在这里可以添加自定义的 ESLint 规则
+      },
+      "settings": {
+        "react": {
+          "version": "detect" // 自动检测所安装的 React 版本
+        }
+      }
+    }  
+  `,
+  react_yml: `
+    env:
+      browser: true
+      es6: true
+      node: true
+    extends:
+      - 'eslint:recommended'
+      - 'plugin:react/recommended'
+    parserOptions:
+      ecmaFeatures:
+        jsx: true
+      ecmaVersion: 2018
+      sourceType: 'module'
+    plugins:
+      - 'react'
+    rules:
+      # 在这里可以添加自定义的 ESLint 规则
+    settings:
+      react:
+        version: 'detect' # 自动检测所安装的 React 版本  
+  `,
 }
