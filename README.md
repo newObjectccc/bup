@@ -42,10 +42,17 @@ for commitlint example:
 bup commitlint"
 ```
 
+for changelog example:
+
+```bash
+bup changelog -c"
+```
+
 ## Features
 
 - eslint integrate
 - commintlint integrate
+- changelog automate setting
 
 ## Roadmap
 
@@ -55,7 +62,6 @@ bup commitlint"
 - mockjs automate setting
 - jest automate setting
 - cypress automate setting
-- changelog automate setting
 
 ## Contributing
 
