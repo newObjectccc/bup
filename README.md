@@ -1,8 +1,6 @@
 # bup
 
-[Badges]
-
-[One paragraph describing the purpose and features of your tool.]
+*bup is a scaffold for frontend enginer to help you build your project.*
 
 ## Installation
 
@@ -64,3 +62,7 @@ bup eslint -f "yml"
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 MIT License, Copyright (c) 2023 Vesper@之一
+
+## Keywords
+
+eslint lint-staged commitlint mockjs jest cypress javascript config setting plugin
