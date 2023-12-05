@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/newObjectccc/bulp/compare/v1.3.0...v1.3.1) (2023-12-05)
+
+
+### Bug Fixes
+
+* **template.js:** update @babel/eslint-parser ([b876804](https://github.com/newObjectccc/bulp/commit/b876804e8b812fb2850b476b58d151642d1a7f1f))
+
 ## 1.3.0 (2023-12-05)
 
 
