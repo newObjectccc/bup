@@ -52,13 +52,12 @@ bup changelog -c
 
 - eslint integrate
 - commintlint integrate
-- changelog automate setting
+- changelog integrate
 
 ## Roadmap
 
 - prettier automate setting
 - lint-staged automate setting
-- commintlint automate setting
 - mockjs automate setting
 - jest automate setting
 - cypress automate setting
