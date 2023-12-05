@@ -6,7 +6,9 @@
   "main": "src/index.js",
   "scripts": {
     "difflog": "standard-version",
-    "release": "standard-version && npm publish"
+    "release": "standard-version && npm publish",
+    "prepare": "husky install",
+    "commit": "commit"
   },
   "bin": {
     "bup": "src/index.js"
@@ -34,6 +36,11 @@
     "prompts": "~2.4.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/prompt-cli": "^18.4.3",
+    "commitlint": "^18.4.3",
+    "husky": "^8.0.3",
     "standard-version": "^9.5.0"
   }
 }
