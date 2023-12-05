@@ -7,19 +7,19 @@
 use npm:
 
 ```bash
-npm install -g bup
+npm install -g buildp
 ```
 
 use pnpm:
 
 ```bash
-pnpm add -g bup
+pnpm add -g buildp
 ```
 
 use yarn:
 
 ```bash
-yarn add -g bup
+yarn add -g buildp
 ```
 
 ## Usage
