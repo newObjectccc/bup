@@ -6,7 +6,6 @@ import ora from 'ora';
 import prompts from 'prompts';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
-import isPackageJsonExist from '../common/is-package-exist.js';
 import { stdoutHdr } from '../helper/output.js';
 
 const settingHuskyOra = ora({
@@ -18,7 +17,6 @@ const settingCommitCfgOra = ora({
 })
 
 export async function execSettingHuskyAndCommitlint(pkgManager) {
-  if (!isPackageJsonExist()) return
   settingHuskyOra.start()
   settingHuskyOra.spinner = 'moon'
   settingHuskyOra.prefixText = chalk.dim('[info]')
