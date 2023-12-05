@@ -5,7 +5,8 @@
   "description": "bup is a scaffold for frontend enginer to help you build your project.",
   "main": "src/index.js",
   "scripts": {
-    "difflog": "standard-version"
+    "difflog": "standard-version",
+    "relase": "standard-version && npm publish"
   },
   "bin": {
     "bup": "src/index.js"
