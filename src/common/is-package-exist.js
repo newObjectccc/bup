@@ -4,8 +4,9 @@ import process from 'node:process';
 
 function isPackageJsonExist() {
   const cwd = process.cwd();
-  const isExist = fs.existsSync(path.join(cwd, 'package.json'));
-  return isExist
+  const filePath = path.join(cwd, 'package.json')
+  const isExist = fs.existsSync(filePath);
+  return isExist && filePath
 }
 
 export default isPackageJsonExist
