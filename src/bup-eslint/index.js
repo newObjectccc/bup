@@ -45,7 +45,7 @@ program
       settingEslintOra.spinner = 'moon'
       settingEslintOra.text = chalk.green('Setting ESLint...')
       const writeRes = await settingEslintrc({ fmt: fmt.format, fwk: fwk.framework })
-      settingEslintOra.succeed(`${writeRes}, completed!`)
+      settingEslintOra.succeed(`${writeRes} succeed!`)
 
       // install plugin
       downloadPluginOra.start()
