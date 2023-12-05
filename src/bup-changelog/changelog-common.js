@@ -31,7 +31,7 @@ export async function settingChangelogOptions(pkgManager, custom) {
       const installRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, customOra),
-        plugin: 'detect-newline detect-indent stringify-package'
+        plugin: 'detect-newline@3.1.0 detect-indent@6.1.0 stringify-package'
       })
       customOra.succeed(installRes)
 
