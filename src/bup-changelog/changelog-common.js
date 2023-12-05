@@ -49,7 +49,7 @@ export async function settingChangelogOptions(pkgManager, custom) {
       const updaterFileOra = stdoutHdr('Set standard-version-updater.js...')
       await writeFileByTemp(CHANGELOG_TEMP.updater, 'standard-version-updater.js')
       updaterFileOra.succeed()
-      customOra.succeed('Set standard-version customize succeed!')
+      customOra.succeed('Edit standard-version-updater.js customize yourself!')
     }
     return true
   } catch (error) {
