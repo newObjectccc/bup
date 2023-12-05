@@ -26,14 +26,14 @@ program
       // verify whether the parameters are valid
       if (fmt.format === void 0) fmt.format = 'js'
       if (!ESLINT_FORMAT_TYPE.includes(fmt.format)) {
-        stderrHdr(loadingEslintOra, ` Parameter "--format" must be one of "${ESLINT_FORMAT_TYPE.join('|')}"`)
+        stderrHdr(` Parameter "--format" must be one of "${ESLINT_FORMAT_TYPE.join('|')}"`, loadingEslintOra)
         return
       }
 
       // download eslint
       const { pkgManager } = await choosePkgMgr()
       loadingEslintOra.start();
-      await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(loadingEslintOra, data) })
+      await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(data, loadingEslintOra) })
       loadingEslintOra.succeed('ESLint download succeed');
 
       // choose framework
@@ -52,14 +52,14 @@ program
       downloadPluginOra.spinner = 'moon'
       const installPlugRes = await installPlugin({
         pkgManager,
-        stdoutHdr: (data) => stdoutHdr(downloadPluginOra, data),
+        stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
         plugin: DEPS_NEED_TO_INSTALL[fwk.framework]
       })
       downloadPluginOra.succeed(`${installPlugRes}, all completed!`)
     } catch (error) {
       loadingEslintOra.fail()
       settingEslintOra.fail()
-      stderrHdr(downloadPluginOra, error)
+      stderrHdr(error, downloadPluginOra)
     }
   });
 
