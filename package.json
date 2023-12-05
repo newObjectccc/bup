@@ -1,6 +1,6 @@
 {
   "name": "bup",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "bup is a scaffold for frontend enginer to help you build your project.",
   "main": "src/index.js",
