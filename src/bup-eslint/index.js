@@ -20,7 +20,7 @@ const downloadPluginOra = ora({
 });
 
 program
-  .option('-f, --format <char>', 'no common eslintrc.js')
+  .option('-f, --format <char>', 'default eslintrc.js if no specify')
   .action(async (fmt) => {
     try {
       // verify whether the parameters are valid
