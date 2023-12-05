@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "difflog": "standard-version",
-    "relase": "standard-version && npm publish"
+    "release": "standard-version && npm publish"
   },
   "bin": {
     "bup": "src/index.js"
