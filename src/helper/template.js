@@ -14,7 +14,7 @@ export const ESLINT_TEMPLATE = {
       ],
       // 使用Babel作为解析器
       parserOptions: {
-        parser: 'babel-eslint'
+        parser: '@babel/eslint-parser'
       },
       rules: {
         // 自定义规则可以在这里添加
@@ -43,7 +43,7 @@ export const ESLINT_TEMPLATE = {
       ],
       parserOptions: {
         // 使用Babel作为解析器
-        parser: 'babel-eslint',
+        parser: '@babel/eslint-parser',
         // 使用ES6 module
         sourceType: 'module'
       },
@@ -71,7 +71,7 @@ export const ESLINT_TEMPLATE = {
         "@vue/prettier"
       ],
       "parserOptions": {
-        "parser": "babel-eslint"
+        "parser": "@babel/eslint-parser"
       },
       "rules": {
         "vue/no-unused-components": "error",
@@ -89,7 +89,7 @@ export const ESLINT_TEMPLATE = {
       - eslint:recommended
       - @vue/prettier
     parserOptions:
-      parser: babel-eslint
+      parser: @babel/eslint-parser
     rules:
       vue/no-unused-components: error
       quotes:
