@@ -6,7 +6,7 @@ function isFileExistInRoot(filename) {
   const cwd = process.cwd();
   const filePath = path.join(cwd, filename)
   const isExist = fs.existsSync(filePath);
-  return isExist && filePath
+  return isExist && path.resolve(filePath)
 }
 
 export default isFileExistInRoot
