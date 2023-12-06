@@ -23,8 +23,7 @@ program
       downloadPluginOra.succeed(installPlugRes)
 
       // setting husky
-      const settingCommitlintOra = startOraWithTemp('Download plugin...')
-      const res = await execSettingHuskyAndCommitlint(pkgManager)
+      await execSettingHuskyAndCommitlint(pkgManager)
     } catch (error) {
       stderrHdr(error, settingCommitlintOra)
     }

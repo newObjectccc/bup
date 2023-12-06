@@ -1,4 +1,5 @@
 import prompts from 'prompts';
+import choicesPrompt from '../common/choices-prompt.js';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import writeFileByTemp from '../common/write-file.js';
@@ -22,9 +23,9 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   settingHuskyOra.succeed('Set husky succeed!')
 
   // install prompt-cli if needed & set commintlint
-  const res = await isPromptToCommit()
+  const { isPrompt } = await isPromptToCommit()
   const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
-  if (res?.isPrompt) {
+  if (isPrompt) {
     await installPlugin({
       pkgManager,
       stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
@@ -37,8 +38,13 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
     })
   }
 
+  // choose format
+  const { format } = await choicesPrompt('format', [
+    { title: 'cjs', value: 'cjs' },
+    { title: 'mjs', value: 'mjs' },
+  ])
   // write commitlint.config.js
-  const execRes = await writeFileByTemp(COMMITLINT_TEMP, 'commitlint.config.js')
+  const execRes = await writeFileByTemp(COMMITLINT_TEMP[format], 'commitlint.config.js')
   if (!execRes) {
     settingCommitCfgOra.fail('You should use bup under the root directory of the project!')
     return
