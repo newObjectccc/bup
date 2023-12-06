@@ -2,10 +2,10 @@
 
 import { Command } from 'commander';
 import fs from 'node:fs';
-import isPackageJsonExist from './common/is-package-exist.js';
+import isFileExistInRoot from './common/is-file-exist.js';
 const program = new Command();
 
-const pkgPath = isPackageJsonExist()
+const pkgPath = isFileExistInRoot('package.json');
 const packageJson = pkgPath && JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
 program

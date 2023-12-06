@@ -2,7 +2,7 @@ import { Command } from 'commander';
 import ora from 'ora';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
-import isPackageJsonExist from '../common/is-package-exist.js';
+import isFileExistInRoot from '../common/is-file-exist.js';
 import { stderrHdr, stdoutHdr } from '../helper/output.js';
 import { execSettingHuskyAndCommitlint } from './commitlint-common.js';
 const program = new Command();
@@ -19,7 +19,7 @@ program
   .option('-c, --custom', 'if specify, will use cz-customizable to customize')
   .action(async ({ custom }) => {
     try {
-      if (!isPackageJsonExist()) throw new Error('There is no package.json in the current folder!');
+      if (!isFileExistInRoot('package.json')) throw new Error('There is no package.json in the current folder!');
       // chiose pakcage manager
       const { pkgManager } = await choosePkgMgr()
       chiosePkgOra.start();
