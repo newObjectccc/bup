@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
-import ora from 'ora';
 import chooseFramework from '../common/choose-framework.js';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
@@ -8,16 +7,6 @@ import { DEPS_NEED_TO_INSTALL, ESLINT_FORMAT_TYPE } from '../helper/constant.js'
 import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { installEslint, settingEslintrc } from './eslint-common.js';
 const program = new Command();
-
-const loadingEslintOra = ora({
-  text: 'Download eslint',
-});
-const settingEslintOra = ora({
-  text: `Setting eslint...`,
-});
-const downloadPluginOra = ora({
-  text: 'Download plugin',
-});
 
 program
   .option('-f, --format <char>', 'default eslintrc.js if no specify')
@@ -32,7 +21,7 @@ program
 
       // download eslint
       const { pkgManager } = await choosePkgMgr()
-      loadingEslintOra.start();
+      const loadingEslintOra = startOraWithTemp('Download eslint');
       await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(data, loadingEslintOra) })
       loadingEslintOra.succeed('ESLint download succeed');
 
@@ -40,13 +29,13 @@ program
       const fwk = await chooseFramework()
 
       // setting eslintrc
-      startOraWithTemp(settingEslintOra)
+      const settingEslintOra = startOraWithTemp(`Setting eslint...`)
       settingEslintOra.text = chalk.green('Setting ESLint...')
       const writeRes = await settingEslintrc({ fmt: fmt.format, fwk: fwk.framework })
       settingEslintOra.succeed(`${writeRes} succeed!`)
 
       // install plugin
-      startOraWithTemp(downloadPluginOra)
+      const downloadPluginOra = startOraWithTemp('Download plugin')
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),

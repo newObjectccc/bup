@@ -1,22 +1,13 @@
-import ora from 'ora';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import writeFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
 import { CHANGELOG_TEMP } from '../helper/template.js';
 
-const settingChangelogOra = ora({
-  text: `Setting changelog...`,
-});
-
-const customOra = ora({
-  text: `Setting standard-version-updater.js...`,
-})
-
 export async function settingChangelogOptions(pkgManager, custom) {
   try {
     // set script difflog
-    startOraWithTemp(settingChangelogOra)
+    const settingChangelogOra = startOraWithTemp(`Setting changelog...`)
     await execCmd({
       cmdStr: `npm pkg set scripts.difflog="standard-version"`,
       stdoutHdr: (data) => stdoutHdr(data, settingChangelogOra),
@@ -27,7 +18,7 @@ export async function settingChangelogOptions(pkgManager, custom) {
     // customize
     if (custom) {
       // install detect-newline detect-indent stringify-package 
-      startOraWithTemp(customOra)
+      const customOra = startOraWithTemp(`Setting standard-version-updater.js...`)
       const installRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, customOra),

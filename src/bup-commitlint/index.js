@@ -1,33 +1,20 @@
 import { Command } from 'commander';
-import ora from 'ora';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
-import { stderrHdr, stdoutHdr } from '../helper/output.js';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { execSettingHuskyAndCommitlint } from './commitlint-common.js';
 const program = new Command();
 
-const chiosePkgOra = ora({
-  text: 'Choose package Manager',
-});
-
-const downloadPluginOra = ora({
-  text: 'Download plugin...',
-});
-
 program
-  .option('-c, --custom', 'if specify, will use cz-customizable to customize')
-  .action(async ({ custom }) => {
+  .action(async () => {
     try {
       if (!isFileExistInRoot('package.json')) throw new Error('There is no package.json in the current folder!');
       // chiose pakcage manager
       const { pkgManager } = await choosePkgMgr()
-      chiosePkgOra.start();
-      chiosePkgOra.succeed(`${pkgManager}, nice chiose!`);
 
       // install commitlint
-      downloadPluginOra.start()
-      downloadPluginOra.spinner = 'moon'
+      const downloadPluginOra = startOraWithTemp('Download plugin...')
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
@@ -36,15 +23,10 @@ program
       downloadPluginOra.succeed(installPlugRes)
 
       // setting husky
-      await execSettingHuskyAndCommitlint(pkgManager)
-
-      // customize
-      if (custom) {
-        //...
-      }
+      const settingCommitlintOra = startOraWithTemp('Download plugin...')
+      const res = await execSettingHuskyAndCommitlint(pkgManager)
     } catch (error) {
-      chiosePkgOra.fail()
-      stderrHdr(error, downloadPluginOra)
+      stderrHdr(error, settingCommitlintOra)
     }
   });
 

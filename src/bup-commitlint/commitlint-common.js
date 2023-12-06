@@ -1,20 +1,12 @@
-import ora from 'ora';
 import prompts from 'prompts';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import writeFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
-
-const settingHuskyOra = ora({
-  text: `Setting husky...`,
-});
-
-const settingCommitCfgOra = ora({
-  text: `Setting commitlint...`,
-})
+import { COMMITLINT_TEMP } from '../helper/template.js';
 
 export async function execSettingHuskyAndCommitlint(pkgManager) {
-  startOraWithTemp(settingHuskyOra)
+  const settingHuskyOra = startOraWithTemp(`Setting husky...`)
   await execCmd({
     cmdStr: `npm pkg set scripts.prepare="husky install"`,
     errMsg: 'Set scripts.prepare fail'
@@ -31,7 +23,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
 
   // install prompt-cli if needed & set commintlint
   const res = await isPromptToCommit()
-  startOraWithTemp(settingCommitCfgOra)
+  const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
   if (res?.isPrompt) {
     await installPlugin({
       pkgManager,
@@ -46,7 +38,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   }
 
   // write commitlint.config.js
-  const execRes = await writeFileByTemp(COMMITLINT_TEMP.comm, 'commitlint.config.js')
+  const execRes = await writeFileByTemp(COMMITLINT_TEMP, 'commitlint.config.js')
   if (!execRes) {
     settingCommitCfgOra.fail('You should use bup under the root directory of the project!')
     return

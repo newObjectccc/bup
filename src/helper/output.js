@@ -24,8 +24,10 @@ export function stderrHdr(data, ins) {
   ctx.fail();
 }
 
-export function startOraWithTemp(oraIns) {
+export function startOraWithTemp(text) {
+  const oraIns = ora({ text })
   oraIns.start()
   oraIns.spinner = 'moon'
   oraIns.prefixText = chalk.dim('[info]')
+  return oraIns
 }

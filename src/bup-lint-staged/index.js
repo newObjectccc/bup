@@ -12,30 +12,15 @@ import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { LINTSTAGED_TEMP } from '../helper/template.js';
 const program = new Command();
 
-const chiosePkgOra = ora({
-  text: 'Choose package Manager',
-});
-const settingHuskyOra = ora({
-  text: `Setting husky...`,
-});
-const downloadPluginOra = ora({
-  text: 'Download plugin...',
-});
-const settingLintstagedrcOra = ora({
-  text: 'Setting lintstagedrc...',
-});
-
 program
   .action(async () => {
     try {
       if (!isFileExistInRoot('package.json')) throw new Error('There is no package.json in the current folder!');
       // chiose pakcage manager
       const { pkgManager } = await choosePkgMgr()
-      chiosePkgOra.start();
-      chiosePkgOra.succeed(`${pkgManager}, nice chiose!`);
 
       // install lint-staged
-      startOraWithTemp(downloadPluginOra)
+      const downloadPluginOra = startOraWithTemp('Download plugin...')
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
@@ -44,7 +29,7 @@ program
       downloadPluginOra.succeed(installPlugRes)
 
       // set husky & lint-staged
-      startOraWithTemp(settingHuskyOra)
+      const settingHuskyOra = startOraWithTemp(`Setting husky...`)
       await execCmd({
         cmdStr: `npm pkg set scripts.prepare="husky install"`,
         errMsg: 'Set scripts.prepare fail'
@@ -68,7 +53,7 @@ program
       ])
 
       // find eslint and prettier config
-      startOraWithTemp(settingLintstagedrcOra)
+      const settingLintstagedrcOra = startOraWithTemp('Setting lintstagedrc...')
       const [files, err] = readdirToString(path.resolve('./'))
       if (err) settingLintstagedrcOra.fail('Readdir failed!')
 
