@@ -3,7 +3,7 @@ import ora from 'ora';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isPackageJsonExist from '../common/is-package-exist.js';
-import { stderrHdr, stdoutHdr } from '../helper/output.js';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { settingChangelogOptions } from './changelog-common.js';
 const program = new Command();
 
@@ -26,8 +26,7 @@ program
       chiosePkgOra.succeed(`${pkgManager}, nice chiose!`);
 
       // install standard-version
-      downloadPluginOra.start()
-      downloadPluginOra.spinner = 'moon'
+      startOraWithTemp(downloadPluginOra)
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
