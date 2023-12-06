@@ -268,3 +268,25 @@ export const COMMITLINT_TEMP = {
     }
   `
 }
+
+export const LINTSTAGED_TEMP = {
+  json: `
+    {
+      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+    }
+  `,
+  cjs: `
+    module.exports = {
+      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+    }
+  `,
+  mjs: `
+    export default {
+      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+    }
+  `,
+  yml: `
+    "*.{js,jsx,ts,tsx,vue}":
+      - eslint --fix
+  `,
+}
