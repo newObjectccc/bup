@@ -8,7 +8,7 @@ function readdirToString(dirPath) {
   } catch (error) {
     result[1] = error
   }
-  return result
+  return result.join(',')
 }
 
 export default readdirToString

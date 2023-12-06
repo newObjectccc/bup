@@ -1,18 +1,10 @@
-import prompts from 'prompts';
+import choicesPrompt from 'choices-prompt.js';
 
 async function choosePkgMgr() {
-  const res = await prompts([
-    {
-      type: 'select',
-      name: 'pkgManager',
-      message: 'which package tool do you prefer?',
-      choices: [
-        { title: 'npm', value: 'npm' },
-        { title: 'yarn', value: 'yarn' },
-        { title: 'pnpm', value: 'pnpm' },
-      ]
-    }
+  return choicesPrompt('pkgManager', [
+    { title: 'npm', value: 'npm' },
+    { title: 'yarn', value: 'yarn' },
+    { title: 'pnpm', value: 'pnpm' },
   ])
-  return res
 }
 export default choosePkgMgr;
