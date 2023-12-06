@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/newObjectccc/bup/compare/v1.5.1...v1.6.0) (2023-12-06)
+
+
+### Features
+
+* **lint-staged:** add lint-staged feature ([c120714](https://github.com/newObjectccc/bup/commit/c1207140174d7d8f9172b62e1fac86ff33244d5e))
+
+
+### Bug Fixes
+
+* **bup-changlog:** code optimize ([f1b7a9d](https://github.com/newObjectccc/bup/commit/f1b7a9d6489cc300194b14ae505fb110fec476db))
+* code optimize ([9de93ae](https://github.com/newObjectccc/bup/commit/9de93ae98b6c9cbca3ebd2032e616c7ee2fcabdb))
+* **commitlint:** fix fail msg ([aac9c3c](https://github.com/newObjectccc/bup/commit/aac9c3c3c7a0129456dfe1cc6bc6ad02e56d758e))
+* **common:** add readdir files func ([9c2a33f](https://github.com/newObjectccc/bup/commit/9c2a33f59f2309e205d3bdc17b05a925f2e1f83b))
+* **common:** fix code ([5f6527d](https://github.com/newObjectccc/bup/commit/5f6527d1365f9f293b08e9c95c7cd26f3eb60b1c))
+* **common:** fix string ([cce0998](https://github.com/newObjectccc/bup/commit/cce0998e3de2df2dc222ca747d187d6e0151bc1d))
+* **common:** is-file-exist return absolute path ([3d27bbe](https://github.com/newObjectccc/bup/commit/3d27bbeae3a4de0bd018705a8b08f0966a05d90c))
+* fix isPackageJsonExist ([733282d](https://github.com/newObjectccc/bup/commit/733282d1025d51735870e8d55e07f3b0cf30422d))
+* optimize code ([f0bf7dc](https://github.com/newObjectccc/bup/commit/f0bf7dc1652d9e708d6424fa4c1b31be36eda820))
+* optimize code ([8e72e3b](https://github.com/newObjectccc/bup/commit/8e72e3b95225f9ecec36acaf1a7ba01044709511))
+
 ### [1.5.1](https://github.com/newObjectccc/bup/compare/v1.5.0...v1.5.1) (2023-12-05)
 
 ## 1.5.0 (2023-12-05)
