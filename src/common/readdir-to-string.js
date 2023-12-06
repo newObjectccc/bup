@@ -4,11 +4,11 @@ function readdirToString(dirPath) {
   const result = []
   try {
     const files = fs.readdirSync(dirPath)
-    result[0] = files
+    result[0] = files.join(',')
   } catch (error) {
     result[1] = error
   }
-  return result.join(',')
+  return result
 }
 
 export default readdirToString

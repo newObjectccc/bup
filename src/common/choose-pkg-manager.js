@@ -1,4 +1,4 @@
-import choicesPrompt from 'choices-prompt.js';
+import choicesPrompt from './choices-prompt.js';
 
 async function choosePkgMgr() {
   return choicesPrompt('pkgManager', [
