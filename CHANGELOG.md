@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2](https://github.com/newObjectccc/bup/compare/v1.7.1...v1.7.2) (2023-12-07)
+
+
+### Bug Fixes
+
+* add ext js, template ([20461df](https://github.com/newObjectccc/bup/commit/20461df9b7b2046a20594e53d215ea6a4bb9e9dd))
+* **eslint:** fix install plugin ([770f7b5](https://github.com/newObjectccc/bup/commit/770f7b5034ae31f95d500dde8fafd6678d1a65cd))
+
 ### [1.7.1](https://github.com/newObjectccc/bup/compare/v1.7.0...v1.7.1) (2023-12-07)
 
 
