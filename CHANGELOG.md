@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.7](https://github.com/newObjectccc/bup/compare/v1.7.6...v1.7.7) (2023-12-07)
+
+
+### Bug Fixes
+
+* **commitlint:** friendly error ([3722b8e](https://github.com/newObjectccc/bup/commit/3722b8ea6bf2de70ac5dd1b99f1d45baa8b36fb8))
+
 ### [1.7.6](https://github.com/newObjectccc/bup/compare/v1.7.5...v1.7.6) (2023-12-07)
 
 
