@@ -1,6 +1,6 @@
 {
   "name": "buildp",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "type": "module",
   "description": "bup is a scaffold for frontend engineer to help you setting your project. progressively and automatically integrate your project.",
   "main": "src/index.cjs",
