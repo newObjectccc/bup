@@ -32,7 +32,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   if (isPrompt) {
     const installPromptCliOra = startOraWithTemp(`Install prompt-cli...`)
     try {
-      await installPlugin({
+      const installRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, installPromptCliOra),
         plugin: '@commitlint/prompt-cli'
@@ -42,12 +42,12 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
         stdoutHdr: (data) => stdoutHdr(data, installPromptCliOra),
         errMsg: 'Set scripts.commit fail'
       })
+      installPromptCliOra.succeed(installRes)
     } catch (error) {
       settingCommitCfgOra.fail()
       installPromptCliOra.fail()
       throw error
     }
-    installPromptCliOra.succeed()
   }
   // choose format
   const { format } = await choicesPrompt('format', [
