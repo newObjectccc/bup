@@ -59,10 +59,10 @@ program
       const [files, err] = readdirToString(path.resolve('./'))
       if (err) settingLintstagedrcOra.fail('Readdir failed!')
 
-      if (!/eslint/.test(files)) {
+      if (!/\.eslintrc/.test(files)) {
         ora({ text: 'you have no eslint, please execute bup eslint!' }).warn()
       }
-      if (!/prettier/.test(files)) {
+      if (!/\.prettierrc/.test(files)) {
         ora({ text: 'you have no prettier, please execute bup prettier!' }).warn()
       }
 
