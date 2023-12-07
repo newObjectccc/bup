@@ -2,9 +2,11 @@
 
 import { Command } from 'commander';
 import fs from 'node:fs';
+import path from 'node:path';
 const program = new Command();
 
-const packageJson = JSON.parse(fs.readFileSync('../package.json', 'utf-8'))
+const pkgPath = path.resolve(path.join('../', 'package.json'))
+const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
 program
   .name('bup')
