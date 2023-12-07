@@ -8,34 +8,44 @@ import { COMMITLINT_TEMP } from '../helper/template.js';
 
 export async function execSettingHuskyAndCommitlint(pkgManager) {
   const settingHuskyOra = startOraWithTemp(`Setting husky...`)
-  await execCmd({
-    cmdStr: `npm pkg set scripts.prepare="husky install"`,
-    errMsg: 'Set scripts.prepare fail'
-  })
-  await execCmd({
-    cmdStr: 'npm run prepare',
-    errMsg: 'Run prepare fail'
-  })
-  await execCmd({
-    cmdStr: `npx husky add .husky/commit-msg "npx --no-install commitlint --edit "$1""`,
-    errMsg: 'Run husky add .husky/commit-msg fail'
-  })
+  try {
+    await execCmd({
+      cmdStr: `npm pkg set scripts.prepare="husky install"`,
+      errMsg: 'Set scripts.prepare fail'
+    })
+    await execCmd({
+      cmdStr: 'npm run prepare',
+      errMsg: 'Run prepare fail'
+    })
+    await execCmd({
+      cmdStr: `npx husky add .husky/commit-msg "npx --no-install commitlint --edit "$1""`,
+      errMsg: 'Run husky add .husky/commit-msg fail'
+    })
+  } catch (error) {
+    settingHuskyOra.fail()
+    throw error
+  }
   settingHuskyOra.succeed('Set husky succeed!')
 
   // install prompt-cli if needed & set commintlint
   const { isPrompt } = await isPromptToCommit()
   const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
   if (isPrompt) {
-    await installPlugin({
-      pkgManager,
-      stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
-      plugin: '@commitlint/prompt-cli'
-    })
-    await execCmd({
-      cmdStr: `npm pkg set scripts.commit="commit"`,
-      stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
-      errMsg: 'Set scripts.commit fail'
-    })
+    try {
+      await installPlugin({
+        pkgManager,
+        stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
+        plugin: '@commitlint/prompt-cli'
+      })
+      await execCmd({
+        cmdStr: `npm pkg set scripts.commit="commit"`,
+        stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
+        errMsg: 'Set scripts.commit fail'
+      })
+    } catch (error) {
+      settingCommitCfgOra.fail()
+      throw error
+    }
   }
 
   // choose format
@@ -46,8 +56,8 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   // write commitlint.config.js
   const execRes = await writeFileByTemp(COMMITLINT_TEMP[format], 'commitlint.config.js')
   if (!execRes) {
-    settingCommitCfgOra.fail('You should use bup under the root directory of the project!')
-    return
+    settingCommitCfgOra.fail()
+    throw new Error('You should use bup under the root directory of the project!')
   }
   settingCommitCfgOra.succeed(execRes)
   return true
