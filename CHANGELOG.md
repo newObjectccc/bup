@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/newObjectccc/bup/compare/v1.7.0...v1.7.1) (2023-12-07)
+
+
+### Bug Fixes
+
+* **template.js:** update ([69a5f30](https://github.com/newObjectccc/bup/commit/69a5f30f5371ab0fa429a79aac715289c9a0df08))
+
 ## [1.7.0](https://github.com/newObjectccc/bup/compare/v1.4.0...v1.7.0) (2023-12-07)
 
 
