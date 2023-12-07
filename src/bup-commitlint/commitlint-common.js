@@ -29,7 +29,6 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
 
   // install prompt-cli if needed & set commintlint
   const { isPrompt } = await isPromptToCommit()
-  const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
   if (isPrompt) {
     const installPromptCliOra = startOraWithTemp(`Install prompt-cli...`)
     try {
@@ -48,6 +47,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
       installPromptCliOra.fail()
       throw error
     }
+    installPromptCliOra.succeed()
   }
   // choose format
   const { format } = await choicesPrompt('format', [
@@ -55,6 +55,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
     { title: 'mjs', value: 'mjs' },
   ])
   // write commitlint.config.js
+  const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
   const execRes = await writeFileByTemp(COMMITLINT_TEMP[format], 'commitlint.config.js')
   if (!execRes) {
     settingCommitCfgOra.fail()
