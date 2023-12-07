@@ -3,11 +3,12 @@ import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
 import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
-import { execSettingHuskyAndCommitlint } from './commitlint-common.js';
+import { execSettingHuskyAndCommitlint             } from './commitlint-common.js';
 const program = new Command();
 
 program
   .action(async () => {
+    let settingCommitlintOra, downloadPluginOra
     try {
       if (!isFileExistInRoot('package.json')) throw new Error('There is no package.json in the current folder!');
       // chiose pakcage manager
@@ -25,7 +26,9 @@ program
       // setting husky
       await execSettingHuskyAndCommitlint(pkgManager)
     } catch (error) {
-      stderrHdr(error, settingCommitlintOra)
+downloadPluginOra?.fail()
+settingCommitlintOra?.fail()
+      stderrHdr(error)
     }
   });
 
