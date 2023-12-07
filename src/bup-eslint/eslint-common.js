@@ -9,7 +9,7 @@ import { ESLINT_TEMPLATE } from '../helper/template.js';
 export async function installEslint(options) {
   const hasPackageJson = isFileExistInRoot('package.json')
   if (!hasPackageJson) throw new Error('There is no package.json in the current folder!')
-  return await installPlugin({ ...options, plugin: 'eslint eslint-plugin-import' })
+  return await installPlugin({ ...options, plugin: 'eslint' })
 }
 
 export function settingEslintrc(options) {
