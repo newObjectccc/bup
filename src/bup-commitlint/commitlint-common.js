@@ -31,23 +31,24 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   const { isPrompt } = await isPromptToCommit()
   const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`)
   if (isPrompt) {
+    const installPromptCliOra = startOraWithTemp(`Install prompt-cli...`)
     try {
       await installPlugin({
         pkgManager,
-        stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
+        stdoutHdr: (data) => stdoutHdr(data, installPromptCliOra),
         plugin: '@commitlint/prompt-cli'
       })
       await execCmd({
         cmdStr: `npm pkg set scripts.commit="commit"`,
-        stdoutHdr: (data) => stdoutHdr(data, settingCommitCfgOra),
+        stdoutHdr: (data) => stdoutHdr(data, installPromptCliOra),
         errMsg: 'Set scripts.commit fail'
       })
     } catch (error) {
       settingCommitCfgOra.fail()
+      installPromptCliOra.fail()
       throw error
     }
   }
-
   // choose format
   const { format } = await choicesPrompt('format', [
     { title: 'cjs', value: 'cjs' },
