@@ -28,6 +28,7 @@ program
         plugin: 'lint-staged husky'
       })
       downloadPluginOra.succeed(installPlugRes)
+      downloadPluginOra = null
 
       // set husky & lint-staged
       settingHuskyOra = startOraWithTemp(`Setting husky...`)
@@ -41,7 +42,7 @@ program
       })
       await execCmd({
         cmdStr: `npx husky add .husky/pre-commit "npx lint-staged"`,
-        errMsg: 'Run husky add .husky/pre-commit fail'
+        errMsg: 'Run husky add .husky/pre-commit fail, check out your .git directory!'
       })
       settingHuskyOra.succeed('Set husky lint-staged succeed!')
 
@@ -69,8 +70,8 @@ program
       const execRes = await writeFileByTemp(LINTSTAGED_TEMP[format], `.lintstagedrc.${format}`)
       settingLintstagedrcOra.succeed(execRes)
     } catch (error) {
-      settingHuskyOra?.fail()
       downloadPluginOra?.fail()
+      settingHuskyOra?.fail()
       settingLintstagedrcOra?.fail()
       stderrHdr(error)
     }

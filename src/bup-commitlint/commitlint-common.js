@@ -19,7 +19,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
     })
     await execCmd({
       cmdStr: `npx husky add .husky/commit-msg "npx --no-install commitlint --edit "$1""`,
-      errMsg: 'Run husky add .husky/commit-msg fail'
+      errMsg: 'Run husky add .husky/commit-msg fail, check out your .git directory!'
     })
   } catch (error) {
     settingHuskyOra.fail()
