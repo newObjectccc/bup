@@ -1,16 +1,17 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
-import chooseFramework from '../common/choose-framework.js';
-import choosePkgMgr from '../common/choose-pkg-manager.js';
-import installPlugin from '../common/install-plugin.js';
-import { DEPS_NEED_TO_INSTALL, ESLINT_FORMAT_TYPE } from '../helper/constant.js';
-import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
-import { installEslint, settingEslintrc } from './eslint-common.js';
+import chooseFramework from '../common/choose-framework';
+import choosePkgMgr from '../common/choose-pkg-manager';
+import installPlugin from '../common/install-plugin';
+import { DEPS_NEED_TO_INSTALL, ESLINT_FORMAT_TYPE } from '../helper/constant';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output';
+import { installEslint, settingEslintrc } from './eslint-common';
 const program = new Command();
 
 program
   .option('-f, --format <char>', 'default eslintrc.js if no specify')
   .action(async (fmt) => {
+    let loadingEslintOra, settingEslintOra, downloadPluginOra
     try {
       // verify whether the parameters are valid
       if (fmt.format === void 0) fmt.format = 'js'
@@ -21,7 +22,7 @@ program
 
       // download eslint
       const { pkgManager } = await choosePkgMgr()
-      const loadingEslintOra = startOraWithTemp('Download eslint');
+      loadingEslintOra = startOraWithTemp('Download eslint');
       await installEslint({ pkgManager, stdoutHdr: (data) => stdoutHdr(data, loadingEslintOra) })
       loadingEslintOra.succeed('ESLint download succeed');
 
@@ -29,13 +30,13 @@ program
       const fwk = await chooseFramework()
 
       // setting eslintrc
-      const settingEslintOra = startOraWithTemp(`Setting eslint...`)
+      settingEslintOra = startOraWithTemp(`Setting eslint...`)
       settingEslintOra.text = chalk.green('Setting ESLint...')
       const writeRes = await settingEslintrc({ fmt: fmt.format, fwk: fwk.framework })
       settingEslintOra.succeed(`${writeRes} succeed!`)
 
       // install plugin
-      const downloadPluginOra = startOraWithTemp('Download plugin')
+      downloadPluginOra = startOraWithTemp('Download plugin')
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
@@ -43,9 +44,10 @@ program
       })
       downloadPluginOra.succeed(`${installPlugRes}, all completed!`)
     } catch (error) {
-      loadingEslintOra.fail()
-      settingEslintOra.fail()
-      stderrHdr(error, downloadPluginOra)
+      loadingEslintOra?.fail()
+      settingEslintOra?.fail()
+      downloadPluginOra?.fail()
+      stderrHdr(error)
     }
   });
 
