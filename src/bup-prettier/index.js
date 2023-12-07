@@ -53,7 +53,7 @@ program.action(async () => {
         let eslintcfg = fs.readFileSync(filePath, 'utf-8');
         eslintcfg = eslintcfg.replace(
           /((extends:|"extends":)\s*\[[^\]]*)/,
-          `$1, "plugin:prettier/recommended"\n  `
+          `"plugin:prettier/recommended", $1`
         );
         await writeRootFileByTemp(eslintcfg, eslintrcFilename);
       } else {
@@ -84,7 +84,7 @@ program.action(async () => {
       if (['json', 'js', 'mjs', 'cjs'].includes(lintstagedrcFilename.split('.').at(-1))) {
         const lintstagedFilePath = isFileExistInRoot(lintstagedrcFilename);
         let lintstagedcfg = fs.readFileSync(lintstagedFilePath, 'utf-8');
-        lintstagedcfg = lintstagedcfg.replace(/\[([^\]]*)/g, `[$1, "prettier --write"`);
+        lintstagedcfg = lintstagedcfg.replace(/\[([^\]]*)/g, `["prettier --write", $1`);
         await writeRootFileByTemp(lintstagedcfg, lintstagedrcFilename);
       } else {
         ora({

@@ -3,6 +3,7 @@ import path from 'node:path';
 import ora from 'ora';
 import choicesPrompt from '../common/choices-prompt.js';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
+import confirmPrompt from '../common/confirm-prompt.js';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
@@ -61,9 +62,15 @@ program.action(async () => {
 
     if (!/\.eslintrc/.test(files)) {
       ora({ text: 'you have no eslint, please execute bup eslint!' }).warn();
+      const { bool } = confirmPrompt('install eslint now?');
+      settingLintstagedrcOra.warn();
+      bool && (await execCmd({ cmdStr: `bup eslint` }));
     }
     if (!/\.prettierrc/.test(files)) {
       ora({ text: 'you have no prettier, please execute bup prettier!' }).warn();
+      const { bool } = confirmPrompt('install prettier now?');
+      settingLintstagedrcOra.warn();
+      bool && (await execCmd({ cmdStr: `bup prettier` }));
     }
 
     // write commitlint.config.js
