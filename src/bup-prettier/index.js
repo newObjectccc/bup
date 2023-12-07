@@ -8,7 +8,7 @@ import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
 import readdirToString from '../common/readdir-to-string.js';
-import writeFileByTemp from '../common/write-file.js';
+import writeRootFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { PRETTIER_TEMP } from '../helper/template.js';
 const program = new Command();
@@ -42,7 +42,7 @@ program.action(async () => {
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadEslintPlgOra),
-        plugin: 'eslint-plugin-prettier'
+        plugin: 'eslint-plugin-prettier eslint-config-prettier'
       });
       downloadEslintPlgOra.succeed(installPlugRes);
       downloadEslintPlgOra = null;
@@ -51,8 +51,11 @@ program.action(async () => {
       if (['json', 'js', 'mjs', 'cjs'].includes(eslintrcFilename.split('.').at(-1))) {
         const filePath = isFileExistInRoot(eslintrcFilename);
         let eslintcfg = fs.readFileSync(filePath, 'utf-8');
-        eslintcfg = eslintcfg.replace(/((extends:|"extends":)\s*\[[^\]]*)/, `$1  "prettier"\n  `);
-        await writeFileByTemp(eslintcfg, filePath);
+        eslintcfg = eslintcfg.replace(
+          /((extends:|"extends":)\s*\[[^\]]*)/,
+          `$1, "plugin:prettier/recommended"\n  `
+        );
+        await writeRootFileByTemp(eslintcfg, eslintrcFilename);
       } else {
         ora({
           text: `your .eslintrc format isn't avaliable to fix,\n you need push "prettier" into extends array.`
@@ -79,10 +82,10 @@ program.action(async () => {
     if (lintstagedrcFilename) {
       // set lintstaged if .lintstagedrc format is json|js|mjs|cjs
       if (['json', 'js', 'mjs', 'cjs'].includes(lintstagedrcFilename.split('.').at(-1))) {
-        const filePath = isFileExistInRoot(lintstagedrcFilename);
-        let lintstagedcfg = fs.readFileSync(filePath, 'utf-8');
-        lintstagedcfg = lintstagedcfg.replace(/\[([^\]]*)/g, `[$1, "prettier --write"`)
-        await writeFileByTemp(lintstagedcfg, filePath);
+        const lintstagedFilePath = isFileExistInRoot(lintstagedrcFilename);
+        let lintstagedcfg = fs.readFileSync(lintstagedFilePath, 'utf-8');
+        lintstagedcfg = lintstagedcfg.replace(/\[([^\]]*)/g, `[$1, "prettier --write"`);
+        await writeRootFileByTemp(lintstagedcfg, lintstagedrcFilename);
       } else {
         ora({
           text: `your .lintstagedrc format isn't avaliable to fix,\n you need push "prettier --write" into "lintstagedrc".`
@@ -105,8 +108,8 @@ program.action(async () => {
 
     // write prettierrc
     settingPrettierOra = startOraWithTemp('Setting .prettierrc...');
-    await writeFileByTemp(PRETTIER_TEMP[format], `.prettierrc.${format}`);
-    await writeFileByTemp(PRETTIER_TEMP.ignore, `.prettierignore`);
+    await writeRootFileByTemp(PRETTIER_TEMP[format], `.prettierrc.${format}`);
+    await writeRootFileByTemp(PRETTIER_TEMP.ignore, `.prettierignore`);
     settingPrettierOra.succeed('Setting prettier succeed!');
   } catch (error) {
     downloadPluginOra?.fail();

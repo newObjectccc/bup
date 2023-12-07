@@ -6,7 +6,6 @@ function writeRootFileByTemp(temp, filename) {
   return new Promise((resolve, reject) => {
     const cwd = process.cwd();
     const normalaizePath = path.join(cwd, filename);
-    console.log(normalaizePath, '2222222222222');
     fs.writeFile(normalaizePath, temp, (err) => {
       reject(err);
     });
