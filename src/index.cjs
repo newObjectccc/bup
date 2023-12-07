@@ -5,8 +5,8 @@ const fs = require('fs');
 const path = require('path');
 const program = new Command();
 
-const pkgPath = path.resolve(path.join(__dirname, '../package.json'))
-const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+const pkgPath = path.resolve(path.join(__dirname, '../package.json'));
+const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
 
 program
   .name('bup')
@@ -16,7 +16,6 @@ program
   .command('changelog', 'start setting changelog')
   .command('prettier', 'start setting prettier')
   .command('lint-staged', 'start setting lint-staged')
-  .command('commitlint', 'start setting commitlint')
-
+  .command('commitlint', 'start setting commitlint');
 
 program.parse();

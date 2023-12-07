@@ -4,7 +4,7 @@ async function choosePkgMgr() {
   return choicesPrompt('pkgManager', [
     { title: 'npm', value: 'npm' },
     { title: 'yarn', value: 'yarn' },
-    { title: 'pnpm', value: 'pnpm' },
-  ])
+    { title: 'pnpm', value: 'pnpm' }
+  ]);
 }
 export default choosePkgMgr;

@@ -5,12 +5,12 @@ import process from 'node:process';
 function writeFileByTemp(temp, filename) {
   return new Promise((resolve, reject) => {
     const cwd = process.cwd();
-    const normalaizePath = path.join(cwd, filename)
+    const normalaizePath = path.join(cwd, filename);
     fs.writeFile(normalaizePath, temp, (err) => {
-      reject(err)
-    })
-    resolve(`Setting done! check out ${filename}.`)
-  })
+      reject(err);
+    });
+    resolve(`Setting done! check out ${filename}.`);
+  });
 }
 
-export default writeFileByTemp
+export default writeFileByTemp;

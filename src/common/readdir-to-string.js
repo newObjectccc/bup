@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 
 function readdirToString(dirPath) {
-  const result = []
+  const result = [];
   try {
-    const files = fs.readdirSync(dirPath)
-    result[0] = files.join(',')
+    const files = fs.readdirSync(dirPath);
+    result[0] = files.join(',');
   } catch (error) {
-    result[1] = error
+    result[1] = error;
   }
-  return result
+  return result;
 }
 
-export default readdirToString
+export default readdirToString;

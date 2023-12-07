@@ -212,8 +212,8 @@ export const ESLINT_TEMPLATE = {
     settings:
       react:
         version: 'detect' # 自动检测所安装的 React 版本  
-  `,
-}
+  `
+};
 
 export const CHANGELOG_TEMP = {
   updater: `
@@ -253,7 +253,7 @@ export const CHANGELOG_TEMP = {
       packageFiles: [tracker]
     }
   `
-}
+};
 
 export const COMMITLINT_TEMP = {
   cjs: `
@@ -278,7 +278,7 @@ export const COMMITLINT_TEMP = {
       // // ignores: [(commit) => commit === ''],
     }
   `
-}
+};
 
 export const LINTSTAGED_TEMP = {
   json: `
@@ -299,9 +299,8 @@ export const LINTSTAGED_TEMP = {
   yml: `
     "*.{js,cjs,mjs,jsx,ts,tsx,vue}":
       - eslint --fix
-  `,
-}
-
+  `
+};
 
 export const PRETTIER_TEMP = {
   json: JSON.stringify({
@@ -437,5 +436,4 @@ export const PRETTIER_TEMP = {
     CHANGELOG.md
     LICENSE
   `
-}
-
+};

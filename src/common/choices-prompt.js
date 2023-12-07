@@ -8,7 +8,7 @@ async function choicesPrompt(name, choices) {
       message: `which ${name} do you prefer?`,
       choices
     }
-  ])
-  return res
+  ]);
+  return res;
 }
 export default choicesPrompt;

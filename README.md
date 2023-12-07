@@ -1,6 +1,6 @@
 # bup
 
-*bup is a scaffold for frontend enginer to help you setting your project. progressively and automatically integrate your project.*
+_bup is a scaffold for frontend enginer to help you setting your project. progressively and automatically integrate your project._
 
 ## Installation
 
