@@ -1,11 +1,11 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
-import chooseFramework from '../common/choose-framework';
-import choosePkgMgr from '../common/choose-pkg-manager';
-import installPlugin from '../common/install-plugin';
-import { DEPS_NEED_TO_INSTALL, ESLINT_FORMAT_TYPE } from '../helper/constant';
-import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output';
-import { installEslint, settingEslintrc } from './eslint-common';
+import chooseFramework from '../common/choose-framework.js';
+import choosePkgMgr from '../common/choose-pkg-manager.js';
+import installPlugin from '../common/install-plugin.js';
+import { DEPS_NEED_TO_INSTALL, ESLINT_FORMAT_TYPE } from '../helper/constant.js';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
+import { installEslint, settingEslintrc } from './eslint-common.js';
 const program = new Command();
 
 program

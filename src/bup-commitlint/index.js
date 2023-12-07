@@ -3,7 +3,7 @@ import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
 import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
-import { execSettingHuskyAndCommitlint             } from './commitlint-common.js';
+import { execSettingHuskyAndCommitlint } from './commitlint-common.js';
 const program = new Command();
 
 program
@@ -26,8 +26,8 @@ program
       // setting husky
       await execSettingHuskyAndCommitlint(pkgManager)
     } catch (error) {
-downloadPluginOra?.fail()
-settingCommitlintOra?.fail()
+      downloadPluginOra?.fail()
+      settingCommitlintOra?.fail()
       stderrHdr(error)
     }
   });

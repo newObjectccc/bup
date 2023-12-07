@@ -119,21 +119,9 @@ export const ESLINT_TEMPLATE = {
       },
       plugins: [
         "react",
-        "import"
       ],
       rules: {
         // 在这里可以添加自定义的 ESLint 规则
-        "import/extensions": [
-          "error",
-          "always",
-          {
-            "js": "never",
-            "mjs": "never",
-            "jsx": "never",
-            "ts": "never"
-            "tsx": "never"
-          }
-        ]
       },
       settings: {
         react: {
@@ -162,21 +150,9 @@ export const ESLINT_TEMPLATE = {
       },
       plugins: [
         "react",
-        "import"
       ],
       rules: {
         // 在这里可以添加自定义的 ESLint 规则
-        "import/extensions": [
-          "error",
-          "always",
-          {
-            "js": "never",
-            "mjs": "never",
-            "jsx": "never",
-            "ts": "never"
-            "tsx": "never"
-          }
-        ]
       },
       settings: {
         react: {
@@ -205,21 +181,9 @@ export const ESLINT_TEMPLATE = {
       },
       "plugins": [
         "react",
-        "import"
       ],
       "rules": {
         // 在这里可以添加自定义的 ESLint 规则
-        "import/extensions": [
-          "error",
-          "always",
-          {
-            "js": "never",
-            "mjs": "never",
-            "jsx": "never",
-            "ts": "never"
-            "tsx": "never"
-          }
-        ]
       },
       "settings": {
         "react": {
@@ -243,18 +207,8 @@ export const ESLINT_TEMPLATE = {
       sourceType: 'module'
     plugins:
       - 'react'
-      - 'import'
     rules:
       # 在这里可以添加自定义的 ESLint 规则
-      import/extensions
-        - error
-        - always
-        -
-          js: never
-          mjs: never
-          jsx: never
-          ts: never
-          tsx: never
     settings:
       react:
         version: 'detect' # 自动检测所安装的 React 版本  

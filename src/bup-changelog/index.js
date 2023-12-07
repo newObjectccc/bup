@@ -1,9 +1,9 @@
 const Command = require('commander');
-import choosePkgMgr from '../common/choose-pkg-manager';
-import installPlugin from '../common/install-plugin';
-import isFileExistInRoot from '../common/is-file-exist';
-import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output';
-import { settingChangelogOptions } from './changelog-common';
+import choosePkgMgr from '../common/choose-pkg-manager.js';
+import installPlugin from '../common/install-plugin.js';
+import isFileExistInRoot from '../common/is-file-exist.js';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
+import { settingChangelogOptions } from './changelog-common.js';
 const program = new Command();
 
 program

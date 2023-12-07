@@ -1,15 +1,15 @@
 import { Command } from 'commander';
 import path from 'node:path';
 import ora from 'ora';
-import choicesPrompt from '../common/choices-prompt';
-import choosePkgMgr from '../common/choose-pkg-manager';
-import execCmd from '../common/exec-cmd';
-import installPlugin from '../common/install-plugin';
-import isFileExistInRoot from '../common/is-file-exist';
-import readdirToString from '../common/readdir-to-string';
-import writeFileByTemp from '../common/write-file';
-import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output';
-import { LINTSTAGED_TEMP } from '../helper/template';
+import choicesPrompt from '../common/choices-prompt.js';
+import choosePkgMgr from '../common/choose-pkg-manager.js';
+import execCmd from '../common/exec-cmd.js';
+import installPlugin from '../common/install-plugin.js';
+import isFileExistInRoot from '../common/is-file-exist.js';
+import readdirToString from '../common/readdir-to-string.js';
+import writeFileByTemp from '../common/write-file.js';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
+import { LINTSTAGED_TEMP } from '../helper/template.js';
 const program = new Command();
 
 program

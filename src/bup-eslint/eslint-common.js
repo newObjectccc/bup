@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import installPlugin from '../common/install-plugin';
-import isFileExistInRoot from '../common/is-file-exist';
-import { ESLINT_FORMAT_TYPE } from '../helper/constant';
-import { ESLINT_TEMPLATE } from '../helper/template';
+import installPlugin from '../common/install-plugin.js';
+import isFileExistInRoot from '../common/is-file-exist.js';
+import { ESLINT_FORMAT_TYPE } from '../helper/constant.js';
+import { ESLINT_TEMPLATE } from '../helper/template.js';
 
 export async function installEslint(options) {
   const hasPackageJson = isFileExistInRoot('package.json')

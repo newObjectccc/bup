@@ -1,8 +1,8 @@
-import execCmd from '../common/exec-cmd';
-import installPlugin from '../common/install-plugin';
-import writeFileByTemp from '../common/write-file';
-import { startOraWithTemp, stdoutHdr } from '../helper/output';
-import { CHANGELOG_TEMP } from '../helper/template';
+import execCmd from '../common/exec-cmd.js';
+import installPlugin from '../common/install-plugin.js';
+import writeFileByTemp from '../common/write-file.js';
+import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
+import { CHANGELOG_TEMP } from '../helper/template.js';
 
 export async function settingChangelogOptions(pkgManager, custom) {
   let settingChangelogOra, customOra

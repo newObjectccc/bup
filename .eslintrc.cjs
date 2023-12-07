@@ -13,16 +13,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    "import"
+
   ],
   rules: {
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        "js": "never",
-        "mjs": "never"
-      }
-    ]
+
   }
 };
