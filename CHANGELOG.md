@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/newObjectccc/bup/compare/v1.7.7...v1.8.0) (2023-12-07)
+
+
+### Features
+
+* **prettier:** add new feature ([782beef](https://github.com/newObjectccc/bup/commit/782beef670e9a8219c51c4b10cc94e1a96c40567))
+* **prettier:** update feature prettier ([e779c85](https://github.com/newObjectccc/bup/commit/e779c85739de01011e50b1bd1fa1a85e52eecc5d))
+
+
+### Bug Fixes
+
+* code style ([8f375aa](https://github.com/newObjectccc/bup/commit/8f375aa224ea115086b239b597babf54f4896e6a))
+* **commitlint:** friendly log ([e18060b](https://github.com/newObjectccc/bup/commit/e18060bf71874ca8ba2ccf271d25a5be6a97bc4b))
+* **prettier:** fix write path err ([75dde91](https://github.com/newObjectccc/bup/commit/75dde91cf723fc88f8d74a9ba56b0bc941ef0e05))
+* writeRootFileByTemp rename ([1f86ae7](https://github.com/newObjectccc/bup/commit/1f86ae79e95c7f37694edbf1c4d2ef5d482a941a))
+
 ### [1.7.7](https://github.com/newObjectccc/bup/compare/v1.7.6...v1.7.7) (2023-12-07)
 
 ### Bug Fixes
