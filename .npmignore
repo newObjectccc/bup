@@ -1,1 +1,8 @@
 node_modules/
+.husky
+.eslintrc.*
+.lintstagedrc.*
+.gitignore
+.npmignore
+.commitlint.config.js
+pnpm-lock.*
