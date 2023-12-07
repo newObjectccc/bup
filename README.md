@@ -90,4 +90,4 @@ MIT License, Copyright (c) 2023 Vesper@之一
 
 ## Keywords
 
-eslint lint-staged commitlint mockjs jest cypress javascript config setting plugin
+eslint lint-staged commitlint mockjs jest cypress javascript config setting plugin changelog prettier
