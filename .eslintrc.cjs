@@ -12,7 +12,17 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  plugins: [
+    "import"
+  ],
   rules: {
-    // 在这里可以添加自定义的 ESLint 规则
-  },
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "js": "never",
+        "mjs": "never"
+      }
+    ]
+  }
 };
