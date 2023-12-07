@@ -2,7 +2,7 @@ import prompts from 'prompts';
 import choicesPrompt from '../common/choices-prompt.js';
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
-import writeFileByTemp from '../common/write-file.js';
+import writeRootFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
 import { COMMITLINT_TEMP } from '../helper/template.js';
 
@@ -56,7 +56,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   ]);
   // write commitlint.config.js
   const settingCommitCfgOra = startOraWithTemp(`Setting commitlint...`);
-  const execRes = await writeFileByTemp(COMMITLINT_TEMP[format], 'commitlint.config.js');
+  const execRes = await writeRootFileByTemp(COMMITLINT_TEMP[format], 'commitlint.config.js');
   if (!execRes) {
     settingCommitCfgOra.fail();
     throw new Error('You should use bup under the root directory of the project!');

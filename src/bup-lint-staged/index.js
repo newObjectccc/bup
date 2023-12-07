@@ -7,7 +7,7 @@ import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
 import readdirToString from '../common/readdir-to-string.js';
-import writeFileByTemp from '../common/write-file.js';
+import writeRootFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
 import { LINTSTAGED_TEMP } from '../helper/template.js';
 const program = new Command();
@@ -67,7 +67,7 @@ program.action(async () => {
     }
 
     // write commitlint.config.js
-    const execRes = await writeFileByTemp(LINTSTAGED_TEMP[format], `.lintstagedrc.${format}`);
+    const execRes = await writeRootFileByTemp(LINTSTAGED_TEMP[format], `.lintstagedrc.${format}`);
     settingLintstagedrcOra.succeed(execRes);
   } catch (error) {
     downloadPluginOra?.fail();

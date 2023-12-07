@@ -2,10 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
-function writeFileByTemp(temp, filename) {
+function writeRootFileByTemp(temp, filename) {
   return new Promise((resolve, reject) => {
     const cwd = process.cwd();
     const normalaizePath = path.join(cwd, filename);
+    console.log(normalaizePath, '2222222222222');
     fs.writeFile(normalaizePath, temp, (err) => {
       reject(err);
     });
@@ -13,4 +14,4 @@ function writeFileByTemp(temp, filename) {
   });
 }
 
-export default writeFileByTemp;
+export default writeRootFileByTemp;

@@ -1,6 +1,6 @@
 import execCmd from '../common/exec-cmd.js';
 import installPlugin from '../common/install-plugin.js';
-import writeFileByTemp from '../common/write-file.js';
+import writeRootFileByTemp from '../common/write-file.js';
 import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
 import { CHANGELOG_TEMP } from '../helper/template.js';
 
@@ -29,17 +29,17 @@ export async function settingChangelogOptions(pkgManager, custom) {
 
       // srite .versionrc.js
       const versionrcFileOra = stdoutHdr('Set .versionrc.js...');
-      await writeFileByTemp(CHANGELOG_TEMP.versionrc, '.versionrc.js');
+      await writeRootFileByTemp(CHANGELOG_TEMP.versionrc, '.versionrc.js');
       versionrcFileOra.succeed();
 
       // write VERSION_TRACKER.json
       const trackerFileOra = stdoutHdr('Set VERSION_TRACKER.json...');
-      await writeFileByTemp(CHANGELOG_TEMP.tracker, 'VERSION_TRACKER.json');
+      await writeRootFileByTemp(CHANGELOG_TEMP.tracker, 'VERSION_TRACKER.json');
       trackerFileOra.succeed();
 
       // write standard-version-updater.js
       const updaterFileOra = stdoutHdr('Set standard-version-updater.js...');
-      await writeFileByTemp(CHANGELOG_TEMP.updater, 'standard-version-updater.js');
+      await writeRootFileByTemp(CHANGELOG_TEMP.updater, 'standard-version-updater.js');
       updaterFileOra.succeed();
       customOra.succeed('Edit standard-version-updater.js customize yourself!');
     }
