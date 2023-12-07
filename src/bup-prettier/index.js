@@ -35,7 +35,7 @@ program.action(async () => {
     const [files, err] = readdirToString(path.resolve('./'));
     if (err) throw new Error(`Readdir failed! ${err}}`);
 
-    // install & set eslint-plugin-prettier if has eslint
+    // install & set eslint-plugin-prettier eslint-config-prettier if has eslint
     const eslintrcFilename = files.split(',').find((fname) => /\.eslintrc/.test(fname));
     if (eslintrcFilename) {
       downloadEslintPlgOra = startOraWithTemp('Download plugin...');

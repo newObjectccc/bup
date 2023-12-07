@@ -48,16 +48,28 @@ for changelog example:
 bup changelog -c
 ```
 
+for prettier example:
+
+```bash
+bup prettier
+```
+
+for lint-staged example:
+
+```bash
+bup lint-staged
+```
+
 ## Features
 
 - eslint integrate
 - commintlint integrate
 - changelog integrate
+- prettier automate setting
+- lint-staged automate setting
 
 ## Roadmap
 
-- prettier automate setting
-- lint-staged automate setting
 - mockjs automate setting
 - jest automate setting
 - cypress automate setting
