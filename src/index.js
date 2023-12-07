@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 const program = new Command();
 
-const pkgPath = path.resolve(path.join('../', 'package.json'))
+const pkgPath = path.resolve(path.join(__dirname, 'package.json'))
 const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
 program
