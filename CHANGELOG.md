@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/newObjectccc/bup/compare/v1.4.0...v1.7.0) (2023-12-07)
+
+
+### Features
+
+* **bup-changelog:** add changelog customize ([ca73309](https://github.com/newObjectccc/bup/commit/ca733091ed5b635f6307cac8e86e58149dbe2a94))
+* **bup-changelog:** add cmd ([31e4dc0](https://github.com/newObjectccc/bup/commit/31e4dc044e0bbf4bed5c5049d7ce2dadd7f443f5))
+* **bup-changelog:** add feature ([fc4526a](https://github.com/newObjectccc/bup/commit/fc4526a39794350eaefc842d39045d3305005729))
+* **bup-eslint:** ignore ext ([e05252a](https://github.com/newObjectccc/bup/commit/e05252aa5c5322c7afea05bc564c8bd7b4da1079))
+* **changelog:** add changelog feature ([4a9b1cd](https://github.com/newObjectccc/bup/commit/4a9b1cdc3b48cca68ae1847390ce6464951fa20b))
+* **common:** add write file func ([02ca765](https://github.com/newObjectccc/bup/commit/02ca76562affcafa95ae28b5b1b4106e9d790afb))
+* **lint-staged:** add lint-staged feature ([c120714](https://github.com/newObjectccc/bup/commit/c1207140174d7d8f9172b62e1fac86ff33244d5e))
+* **lintstagedrc:** add mjs ([0a21952](https://github.com/newObjectccc/bup/commit/0a219528e9c659e2041693b6b8ac010b8f68f0cf))
+* **output.js:** add ora start func ([0378324](https://github.com/newObjectccc/bup/commit/03783246bd23b140a694d6cc9aa8d1e16d89d2fe))
+
+
+### Bug Fixes
+
+* **.lintstagedrc:** add mjs,cjs ([8e7ab65](https://github.com/newObjectccc/bup/commit/8e7ab656246f6a9c779abadc0c8e819a02fb76f0))
+* **bup-changelog:** bug fix ([7b580f9](https://github.com/newObjectccc/bup/commit/7b580f984b39615b65e274cac65e4e6de60e572b))
+* **bup-changelog:** customize deps version lock ([89f2a5c](https://github.com/newObjectccc/bup/commit/89f2a5c58d95a3d186b81c335ba1c3bff5657f76))
+* **bup-changelog:** customize notice ([e13d911](https://github.com/newObjectccc/bup/commit/e13d91185177f21e853b7bdee52ce4e218d6e0c0))
+* **bup-changlog:** code optimize ([f1b7a9d](https://github.com/newObjectccc/bup/commit/f1b7a9d6489cc300194b14ae505fb110fec476db))
+* **bup-commitlint:** fix code ([87b24f7](https://github.com/newObjectccc/bup/commit/87b24f7f348c25d5cda3e33fa0b94b34fba3acf0))
+* **bup-commitlint:** update temp ([7dfbd86](https://github.com/newObjectccc/bup/commit/7dfbd86a60ac981a1d4303844f5db6244b7be8c0))
+* **changelog:** update ([8df30cc](https://github.com/newObjectccc/bup/commit/8df30cc224940a9dcdbb4c6eba86dc6cee9fd8a8))
+* **changelog:** update ([8638605](https://github.com/newObjectccc/bup/commit/86386057706cba9590937b839c6e4d7b755e11de))
+* code optimize ([9de93ae](https://github.com/newObjectccc/bup/commit/9de93ae98b6c9cbca3ebd2032e616c7ee2fcabdb))
+* **commitlint:** fix fail msg ([aac9c3c](https://github.com/newObjectccc/bup/commit/aac9c3c3c7a0129456dfe1cc6bc6ad02e56d758e))
+* **commitlint:** update ([9f72124](https://github.com/newObjectccc/bup/commit/9f721244d4b2e92a105f55a32d4c5d8ed4f6d245))
+* **common:** add readdir files func ([9c2a33f](https://github.com/newObjectccc/bup/commit/9c2a33f59f2309e205d3bdc17b05a925f2e1f83b))
+* **common:** fix code ([5f6527d](https://github.com/newObjectccc/bup/commit/5f6527d1365f9f293b08e9c95c7cd26f3eb60b1c))
+* **common:** fix string ([cce0998](https://github.com/newObjectccc/bup/commit/cce0998e3de2df2dc222ca747d187d6e0151bc1d))
+* **common:** is-file-exist return absolute path ([3d27bbe](https://github.com/newObjectccc/bup/commit/3d27bbeae3a4de0bd018705a8b08f0966a05d90c))
+* **eslint:** update ([5e5d8c4](https://github.com/newObjectccc/bup/commit/5e5d8c4b1ff884d70213805e30378d20e84cb921))
+* **eslint:** update ([27beb2e](https://github.com/newObjectccc/bup/commit/27beb2e407aa80553a395ed057343a59e5a2c986))
+* fix isPackageJsonExist ([733282d](https://github.com/newObjectccc/bup/commit/733282d1025d51735870e8d55e07f3b0cf30422d))
+* **lint-staged:** update ([67f1cf1](https://github.com/newObjectccc/bup/commit/67f1cf1455add6f7f02e233c2a7bda2bd7633132))
+* optimize code ([f0bf7dc](https://github.com/newObjectccc/bup/commit/f0bf7dc1652d9e708d6424fa4c1b31be36eda820))
+* optimize code ([8e72e3b](https://github.com/newObjectccc/bup/commit/8e72e3b95225f9ecec36acaf1a7ba01044709511))
+* **template.js:** update ([4bab834](https://github.com/newObjectccc/bup/commit/4bab8341066696ded915c1369ce6acd4fac72e85))
+
 ## [1.6.0](https://github.com/newObjectccc/bup/compare/v1.5.1...v1.6.0) (2023-12-06)
 
 
