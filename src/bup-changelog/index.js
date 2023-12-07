@@ -27,7 +27,7 @@ program
       // setting husky
       await settingChangelogOptions(pkgManager, custom)
     } catch (error) {
-downloadPluginOra?.fail()
+      downloadPluginOra?.fail()
       stderrHdr(error)
     }
   });
