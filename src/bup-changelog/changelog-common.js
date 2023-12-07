@@ -1,13 +1,14 @@
-import execCmd from '../common/exec-cmd.js';
-import installPlugin from '../common/install-plugin.js';
-import writeFileByTemp from '../common/write-file.js';
-import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
-import { CHANGELOG_TEMP } from '../helper/template.js';
+import execCmd from '../common/exec-cmd';
+import installPlugin from '../common/install-plugin';
+import writeFileByTemp from '../common/write-file';
+import { startOraWithTemp, stdoutHdr } from '../helper/output';
+import { CHANGELOG_TEMP } from '../helper/template';
 
 export async function settingChangelogOptions(pkgManager, custom) {
+  let settingChangelogOra, customOra
   try {
     // set script difflog
-    const settingChangelogOra = startOraWithTemp(`Setting changelog...`)
+    settingChangelogOra = startOraWithTemp(`Setting changelog...`)
     await execCmd({
       cmdStr: `npm pkg set scripts.difflog="standard-version"`,
       stdoutHdr: (data) => stdoutHdr(data, settingChangelogOra),
@@ -18,7 +19,7 @@ export async function settingChangelogOptions(pkgManager, custom) {
     // customize
     if (custom) {
       // install detect-newline detect-indent stringify-package 
-      const customOra = startOraWithTemp(`Setting standard-version-updater.js...`)
+      customOra = startOraWithTemp(`Setting standard-version-updater.js...`)
       const installRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, customOra),
@@ -44,7 +45,7 @@ export async function settingChangelogOptions(pkgManager, custom) {
     }
     return true
   } catch (error) {
-    settingChangelogOra.fail(error)
-    customOra.fail(error)
+    settingChangelogOra?.fail(error)
+    customOra?.fail(error)
   }
 }
