@@ -1,10 +1,10 @@
 import prompts from 'prompts';
-import choicesPrompt from '../common/choices-prompt.js';
-import execCmd from '../common/exec-cmd.js';
-import installPlugin from '../common/install-plugin.js';
-import writeFileByTemp from '../common/write-file.js';
-import { startOraWithTemp, stdoutHdr } from '../helper/output.js';
-import { COMMITLINT_TEMP } from '../helper/template.js';
+import choicesPrompt from '../common/choices-prompt';
+import execCmd from '../common/exec-cmd';
+import installPlugin from '../common/install-plugin';
+import writeFileByTemp from '../common/write-file';
+import { startOraWithTemp, stdoutHdr } from '../helper/output';
+import { COMMITLINT_TEMP } from '../helper/template';
 
 export async function execSettingHuskyAndCommitlint(pkgManager) {
   const settingHuskyOra = startOraWithTemp(`Setting husky...`)
