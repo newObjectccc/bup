@@ -26,7 +26,7 @@ program
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
-        plugin: 'prettier husky'
+        plugin: 'prettier husky',
       })
       downloadPluginOra.succeed(installPlugRes)
       downloadPluginOra = null
@@ -42,24 +42,23 @@ program
         const installPlugRes = await installPlugin({
           pkgManager,
           stdoutHdr: (data) => stdoutHdr(data, downloadEslintPlgOra),
-          plugin: 'eslint-plugin-prettier'
+          plugin: 'eslint-plugin-prettier',
         })
         downloadEslintPlgOra.succeed(installPlugRes)
         downloadEslintPlgOra = null
         // set plugin if .eslintrc format is json|js
         if (['json', 'js', 'mjs', 'cjs'].includes(eslintrcFilename.split('.').at(-1))) {
           const filePath = isFileExistInRoot(eslintrcFilename)
-          let eslintcfg = fs.readFileSync(filePath)
-          eslintcfg = JSON.parse(eslintcfg)
-          eslintcfg.extends.push("prettier")
-          await writeFileByTemp(JSON.stringify(eslintcfg), filePath)
+          let eslintcfg = fs.readFileSync(filePath, 'utf-8')
+          eslintcfg = eslintcfg.replace(/((extends:|"extends":)\s*\[[^\]]*)/, `$1  "prettier"\n  `)
+          await writeFileByTemp(eslintcfg, filePath)
         } else {
           ora({ text: `your .eslintrc format isn't avaliable to fix,\n you need push "prettier" into extends array.` }).warn()
         }
       }
 
       // set husky if no .husky
-      if (!/\.husky/.text(files)) {
+      if (!/\.husky/.test(files)) {
         settingHuskyOra = startOraWithTemp(`Setting husky...`)
         await execCmd({
           cmdStr: `npm pkg set scripts.prepare="husky install"`,
@@ -69,12 +68,12 @@ program
           cmdStr: 'npm run prepare',
           errMsg: 'Run prepare fail'
         })
-        await execCmd({
-          cmdStr: `npx husky add .husky/pre-commit "npx prettier . --write"`,
-          errMsg: 'Run husky add .husky/pre-commit fail, check out your .git directory!'
-        })
         settingHuskyOra.succeed('Set husky succeed!')
       }
+      await execCmd({
+        cmdStr: `npx husky add .husky/pre-commit "npx prettier . --write"`,
+        errMsg: 'Run husky add .husky/pre-commit fail, check out your .git directory!'
+      })
 
       // choose prettierrc format
       const { format } = await choicesPrompt('format', [
@@ -86,8 +85,9 @@ program
 
       // write prettierrc
       settingPrettierOra = startOraWithTemp('Setting .prettierrc...')
-      const execRes = await writeFileByTemp(PRETTIER_TEMP[format], `.prettierrc.${format}`)
-      settingPrettierOra.succeed(execRes)
+      await writeFileByTemp(PRETTIER_TEMP[format], `.prettierrc.${format}`)
+      await writeFileByTemp(PRETTIER_TEMP.ignore, `.prettierignore`)
+      settingPrettierOra.succeed('Setting prettier succeed!')
     } catch (error) {
       downloadPluginOra?.fail()
       settingHuskyOra?.fail()
