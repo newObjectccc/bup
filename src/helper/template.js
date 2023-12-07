@@ -114,7 +114,7 @@ export const ESLINT_TEMPLATE = {
         ecmaFeatures: {
           jsx: true,
         },
-        ecmaVersion: 2018,
+        ecmaVersion: 'latest',
         sourceType: 'module',
       },
       plugins: [
@@ -145,7 +145,7 @@ export const ESLINT_TEMPLATE = {
         ecmaFeatures: {
           jsx: true,
         },
-        ecmaVersion: 2018,
+        ecmaVersion: 'latest',
         sourceType: 'module',
       },
       plugins: [
@@ -176,7 +176,7 @@ export const ESLINT_TEMPLATE = {
         "ecmaFeatures": {
           "jsx": true
         },
-        "ecmaVersion": 2018,
+        "ecmaVersion": 'latest',
         "sourceType": "module"
       },
       "plugins": [
@@ -203,7 +203,7 @@ export const ESLINT_TEMPLATE = {
     parserOptions:
       ecmaFeatures:
         jsx: true
-      ecmaVersion: 2018
+      ecmaVersion: 'latest',
       sourceType: 'module'
     plugins:
       - 'react'
@@ -283,21 +283,21 @@ export const COMMITLINT_TEMP = {
 export const LINTSTAGED_TEMP = {
   json: `
     {
-      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+      "*.{js,cjs,mjs,jsx,ts,tsx,vue}": ["eslint --fix"]
     }
   `,
   cjs: `
     module.exports = {
-      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+      "*.{js,cjs,mjs,jsx,ts,tsx,vue}": ["eslint --fix"]
     }
   `,
   mjs: `
     export default {
-      "*.{js,jsx,ts,tsx,vue}": ["eslint --fix"]
+      "*.{js,cjs,mjs,jsx,ts,tsx,vue}": ["eslint --fix"]
     }
   `,
   yml: `
-    "*.{js,jsx,ts,tsx,vue}":
+    "*.{js,cjs,mjs,jsx,ts,tsx,vue}":
       - eslint --fix
   `,
 }
