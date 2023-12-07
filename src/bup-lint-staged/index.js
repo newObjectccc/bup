@@ -1,26 +1,27 @@
 import { Command } from 'commander';
 import path from 'node:path';
 import ora from 'ora';
-import choicesPrompt from '../common/choices-prompt.js';
-import choosePkgMgr from '../common/choose-pkg-manager.js';
-import execCmd from '../common/exec-cmd.js';
-import installPlugin from '../common/install-plugin.js';
-import isFileExistInRoot from '../common/is-file-exist.js';
-import readdirToString from '../common/readdir-to-string.js';
-import writeFileByTemp from '../common/write-file.js';
-import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output.js';
-import { LINTSTAGED_TEMP } from '../helper/template.js';
+import choicesPrompt from '../common/choices-prompt';
+import choosePkgMgr from '../common/choose-pkg-manager';
+import execCmd from '../common/exec-cmd';
+import installPlugin from '../common/install-plugin';
+import isFileExistInRoot from '../common/is-file-exist';
+import readdirToString from '../common/readdir-to-string';
+import writeFileByTemp from '../common/write-file';
+import { startOraWithTemp, stderrHdr, stdoutHdr } from '../helper/output';
+import { LINTSTAGED_TEMP } from '../helper/template';
 const program = new Command();
 
 program
   .action(async () => {
+    let settingHuskyOra, downloadPluginOra, settingLintstagedrcOra
     try {
       if (!isFileExistInRoot('package.json')) throw new Error('There is no package.json in the current folder!');
       // chiose pakcage manager
       const { pkgManager } = await choosePkgMgr()
 
       // install lint-staged
-      const downloadPluginOra = startOraWithTemp('Download plugin...')
+      downloadPluginOra = startOraWithTemp('Download plugin...')
       const installPlugRes = await installPlugin({
         pkgManager,
         stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
@@ -29,7 +30,7 @@ program
       downloadPluginOra.succeed(installPlugRes)
 
       // set husky & lint-staged
-      const settingHuskyOra = startOraWithTemp(`Setting husky...`)
+      settingHuskyOra = startOraWithTemp(`Setting husky...`)
       await execCmd({
         cmdStr: `npm pkg set scripts.prepare="husky install"`,
         errMsg: 'Set scripts.prepare fail'
@@ -53,7 +54,7 @@ program
       ])
 
       // find eslint and prettier config
-      const settingLintstagedrcOra = startOraWithTemp('Setting lintstagedrc...')
+      settingLintstagedrcOra = startOraWithTemp('Setting .lintstagedrc...')
       const [files, err] = readdirToString(path.resolve('./'))
       if (err) settingLintstagedrcOra.fail('Readdir failed!')
 
@@ -65,12 +66,13 @@ program
       }
 
       // write commitlint.config.js
-      const execRes = await writeFileByTemp(LINTSTAGED_TEMP[format], `lintstagedrc.${format}`)
+      const execRes = await writeFileByTemp(LINTSTAGED_TEMP[format], `.lintstagedrc.${format}`)
       settingLintstagedrcOra.succeed(execRes)
     } catch (error) {
-      settingHuskyOra.fail()
-      downloadPluginOra.fail()
-      stderrHdr(error, settingLintstagedrcOra)
+      settingHuskyOra?.fail()
+      downloadPluginOra?.fail()
+      settingLintstagedrcOra?.fail()
+      stderrHdr(error)
     }
   });
 
