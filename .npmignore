@@ -6,4 +6,9 @@ node_modules/
 .npmignore
 commitlint.config.js
 pnpm-lock.*
-src/**/*
+src/
+.prettierrc.*
+.prettierignore
+CHANGELOG.md
+README.md
+rollup.config.*
