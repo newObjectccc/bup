@@ -6,3 +6,4 @@ node_modules/
 .npmignore
 commitlint.config.js
 pnpm-lock.*
+src/**/*
