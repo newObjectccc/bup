@@ -11,11 +11,12 @@ const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
 program
   .name('bup')
   .version(`v${packageJson?.version ?? '0.0.1'}`)
-  .description('bup is useful scaffold to help you setting your project')
+  .description('bup is help you setting your project development dependencies!')
   .command('eslint', 'start setting eslint')
   .command('changelog', 'start setting changelog')
   .command('prettier', 'start setting prettier')
   .command('lint-staged', 'start setting lint-staged')
-  .command('commitlint', 'start setting commitlint');
+  .command('commitlint', 'start setting commitlint')
+  .command('check', 'start check out your project projective deps!');
 
 program.parse();
