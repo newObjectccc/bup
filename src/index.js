@@ -2,8 +2,7 @@
 
 import { Command } from 'commander';
 import fs from 'node:fs';
-import path from 'node:path';
-import { dirname } from 'path';
+import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'url';
 const program = new Command();
 const __dirname = dirname(fileURLToPath(import.meta.url));
