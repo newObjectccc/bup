@@ -1,18 +1,18 @@
 {
   "name": "buildp",
-  "version": "1.8.3",
+  "version": "1.9.0",
   "type": "module",
   "description": "bup is a scaffold for frontend engineer to help you setting your project. progressively and automatically integrate your project.",
   "main": "src/index.js",
   "scripts": {
     "difflog": "standard-version",
-    "release": "standard-version && npm publish",
+    "release": "standard-version && pnpm build && npm publish",
     "prepare": "husky install",
     "commit": "commit",
     "build": "rollup --config"
   },
   "bin": {
-    "bup": "src/index.js"
+    "bup": "dist/index.js"
   },
   "keywords": [
     "eslint",

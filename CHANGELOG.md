@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/newObjectccc/bup/compare/v1.8.3...v1.9.0) (2023-12-08)
+
+
+### Features
+
+* **checkout:** checkout feature init ([0da9906](https://github.com/newObjectccc/bup/commit/0da99060badb0041c66ca692bda6960fe5ef7631))
+
+
+### Bug Fixes
+
+* **.gitignore:** add dist directory ([4917c37](https://github.com/newObjectccc/bup/commit/4917c3745e82ce492d83691e6df1efd8ef1ca5da))
+* **package.json,index.js:** cjs to js ([5f7fc48](https://github.com/newObjectccc/bup/commit/5f7fc48ad3af68158eb6f39b3f8991a238591a91))
+
 ### [1.8.3](https://github.com/newObjectccc/bup/compare/v1.8.2...v1.8.3) (2023-12-07)
 
 ### [1.8.2](https://github.com/newObjectccc/bup/compare/v1.8.1...v1.8.2) (2023-12-07)
