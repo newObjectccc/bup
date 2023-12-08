@@ -3,7 +3,7 @@
   "version": "1.8.3",
   "type": "module",
   "description": "bup is a scaffold for frontend engineer to help you setting your project. progressively and automatically integrate your project.",
-  "main": "src/index.cjs",
+  "main": "src/index.js",
   "scripts": {
     "difflog": "standard-version",
     "release": "standard-version && npm publish",
@@ -11,7 +11,7 @@
     "commit": "commit"
   },
   "bin": {
-    "bup": "src/index.cjs"
+    "bup": "src/index.js"
   },
   "keywords": [
     "eslint",
