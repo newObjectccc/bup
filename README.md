@@ -13,7 +13,7 @@ npm install -g buildp
 use pnpm:
 
 ```bash
-pnpm add -g buildp
+pnpm install -g buildp
 ```
 
 use yarn:
