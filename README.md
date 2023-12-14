@@ -33,8 +33,10 @@ bup -h
 for eslint example:
 
 ```bash
-bup eslint -f "yml"
+bup eslint
 ```
+
+then, bup will install the devDeps that eslint needed and opreating .eslintrc file. 
 
 for commitlint example:
 
