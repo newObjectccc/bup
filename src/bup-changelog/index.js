@@ -1,4 +1,4 @@
-const Command = require('commander');
+import { Command } from 'commander';
 import choosePkgMgr from '../common/choose-pkg-manager.js';
 import installPlugin from '../common/install-plugin.js';
 import isFileExistInRoot from '../common/is-file-exist.js';
