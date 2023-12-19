@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.6](https://github.com/newObjectccc/bup/compare/v1.9.4...v1.9.6) (2023-12-19)
+
+
+### Bug Fixes
+
+* **changelog:** commonjs fix to esmodule ([572755b](https://github.com/newObjectccc/bup/commit/572755be5bdfb9326ec122a0f84b77aa284988a9))
+
 ### [1.9.5](https://github.com/newObjectccc/bup/compare/v1.9.4...v1.9.5) (2023-12-19)
 
 
