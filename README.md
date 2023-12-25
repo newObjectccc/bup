@@ -75,6 +75,8 @@ bup lint-staged
 - mockjs automate setting
 - jest automate setting
 - cypress automate setting
+- oxlint automate setting
+- biome automate setting
 
 ## Contributing
 
