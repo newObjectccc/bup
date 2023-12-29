@@ -1,3 +1,5 @@
+![windows-62x62px](https://github.com/newObjectccc/bup/assets/42132586/f69c213d-1707-4fd7-922a-f0a38e62b610) 
+
 # bup
 
 _bup is a scaffold for frontend enginer to help you configure your project. progressively and automatically integrate development dependency of your project._
