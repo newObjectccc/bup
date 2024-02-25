@@ -41,7 +41,7 @@ program.action(async () => {
       errMsg: 'Run prepare fail'
     });
     await execCmd({
-      cmdStr: `echo "npx lint-staged" > .husky/pre-commit`,
+      cmdStr: `echo npx lint-staged > .husky/pre-commit`,
       errMsg:
         'Run echo "npx lint-staged" > .husky/pre-commit failed, check out your .git directory!'
     });
