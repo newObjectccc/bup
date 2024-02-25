@@ -10,7 +10,7 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
   const settingHuskyOra = startOraWithTemp(`Setting husky...`);
   try {
     await execCmd({
-      cmdStr: `npm pkg set scripts.prepare="husky install"`,
+      cmdStr: `npm pkg set scripts.prepare="husky"`,
       errMsg: 'Set scripts.prepare fail'
     });
     await execCmd({
@@ -18,9 +18,9 @@ export async function execSettingHuskyAndCommitlint(pkgManager) {
       errMsg: 'Run prepare fail'
     });
     await execCmd({
-      cmdStr: `echo "npx --no-install commitlint --edit "$1"" > .husky/commit-msg`,
+      cmdStr: `echo "npx --no-install commitlint --edit $1" > .husky/commit-msg`,
       errMsg:
-        'Run echo "npx --no-install commitlint --edit "$1"" > .husky/commit-msg failed, check out your .git directory!'
+        'Run echo "npx --no-install commitlint --edit $1" > .husky/commit-msg failed, check out your .git directory!'
     });
   } catch (error) {
     settingHuskyOra.fail();

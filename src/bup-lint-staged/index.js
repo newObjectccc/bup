@@ -25,7 +25,7 @@ program.action(async () => {
     const installPlugRes = await installPlugin({
       pkgManager,
       stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
-      plugin: 'lint-staged husky'
+      plugin: 'lint-staged husky@9.0.1'
     });
     downloadPluginOra.succeed(installPlugRes);
     downloadPluginOra = null;
@@ -33,7 +33,7 @@ program.action(async () => {
     // set husky & lint-staged
     settingHuskyOra = startOraWithTemp(`Setting husky...`);
     await execCmd({
-      cmdStr: `npm pkg set scripts.prepare="husky install"`,
+      cmdStr: `npm pkg set scripts.prepare="husky"`,
       errMsg: 'Set scripts.prepare fail'
     });
     await execCmd({
