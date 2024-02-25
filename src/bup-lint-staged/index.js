@@ -25,7 +25,7 @@ program.action(async () => {
     const installPlugRes = await installPlugin({
       pkgManager,
       stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
-      plugin: 'lint-staged husky@9.0.1'
+      plugin: 'lint-staged husky@9.0.11'
     });
     downloadPluginOra.succeed(installPlugRes);
     downloadPluginOra = null;

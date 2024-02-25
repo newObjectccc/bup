@@ -26,7 +26,7 @@ program.action(async () => {
     const installPlugRes = await installPlugin({
       pkgManager,
       stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
-      plugin: 'prettier husky@9.0.1'
+      plugin: 'prettier husky@9.0.11'
     });
     downloadPluginOra.succeed(installPlugRes);
     downloadPluginOra = null;

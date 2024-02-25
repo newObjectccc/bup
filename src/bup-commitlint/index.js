@@ -19,7 +19,7 @@ program.action(async () => {
     const installPlugRes = await installPlugin({
       pkgManager,
       stdoutHdr: (data) => stdoutHdr(data, downloadPluginOra),
-      plugin: 'husky@9.0.1 commitlint @commitlint/config-conventional @commitlint/cli'
+      plugin: 'husky@9.0.11 commitlint @commitlint/config-conventional @commitlint/cli'
     });
     downloadPluginOra.succeed(installPlugRes);
 
