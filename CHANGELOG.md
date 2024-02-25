@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.8](https://github.com/newObjectccc/bup/compare/v1.9.7...v1.9.8) (2024-02-25)
+
+
+### Bug Fixes
+
+* **commitlint:** fix husky "add" to "echo" ([b011ccf](https://github.com/newObjectccc/bup/commit/b011ccf27bfe4da3277b555c7559bedd4926c53e))
+* **prettier:** fix husky "add" to "echo" ([4e3513e](https://github.com/newObjectccc/bup/commit/4e3513e9842620787ea5f00c24853dc6b051d73d))
+
 ### [1.9.7](https://github.com/newObjectccc/bup/compare/v1.9.6...v1.9.7) (2024-02-25)
 
 
