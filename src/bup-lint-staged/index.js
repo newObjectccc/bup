@@ -41,8 +41,9 @@ program.action(async () => {
       errMsg: 'Run prepare fail'
     });
     await execCmd({
-      cmdStr: `npx husky add .husky/pre-commit "npx lint-staged"`,
-      errMsg: 'Run husky add .husky/pre-commit fail, check out your .git directory!'
+      cmdStr: `echo "npx lint-staged" > .husky/pre-commit`,
+      errMsg:
+        'Run echo "npx lint-staged" > .husky/pre-commit failed, check out your .git directory!'
     });
     settingHuskyOra.succeed('Set husky lint-staged succeed!');
 
