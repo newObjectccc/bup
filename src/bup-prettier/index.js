@@ -93,8 +93,9 @@ program.action(async () => {
       }
     } else {
       await execCmd({
-        cmdStr: `npx husky add .husky/pre-commit "npx prettier . --write"`,
-        errMsg: 'Run husky add .husky/pre-commit fail, check out your .git directory!'
+        cmdStr: `echo "npx prettier . --write" > .husky/pre-commit`,
+        errMsg:
+          'Run echo "npx prettier . --write" > .husky/pre-commit failed, check out your .git directory!'
       });
     }
 
