@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.7](https://github.com/newObjectccc/bup/compare/v1.9.6...v1.9.7) (2024-02-25)
+
+
+### Bug Fixes
+
+* **lint-staged:** fix add to echo ([8f12eba](https://github.com/newObjectccc/bup/commit/8f12ebaff7644cb244479056d978c06d640a3759))
+
 ### [1.9.6](https://github.com/newObjectccc/bup/compare/v1.9.4...v1.9.6) (2023-12-19)
 
 
