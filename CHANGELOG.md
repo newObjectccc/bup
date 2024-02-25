@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/newObjectccc/bup/compare/v2.0.1...v2.0.2) (2024-02-25)
+
+
+### Bug Fixes
+
+* fix husky ([ddaaedf](https://github.com/newObjectccc/bup/commit/ddaaedf364c6f14b551e999fecb41b0720dd40ac))
+
 ### [2.0.1](https://github.com/newObjectccc/bup/compare/v1.9.8...v2.0.1) (2024-02-25)
 
 ### [1.9.8](https://github.com/newObjectccc/bup/compare/v1.9.7...v1.9.8) (2024-02-25)
