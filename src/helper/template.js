@@ -1,4 +1,4 @@
-export const ESLINT_TEMPLATE = {
+const ESLINT_TEMPLATE = {
   vue_js: `
     module.exports = {
       // 指定为根配置文件
@@ -215,7 +215,7 @@ export const ESLINT_TEMPLATE = {
   `
 };
 
-export const CHANGELOG_TEMP = {
+const CHANGELOG_TEMP = {
   updater: `
     const stringifyPackage = require('stringify-package')
     const detectIndent = require('detect-indent')
@@ -255,7 +255,7 @@ export const CHANGELOG_TEMP = {
   `
 };
 
-export const COMMITLINT_TEMP = {
+const COMMITLINT_TEMP = {
   cjs: `
     module.exports = {
       extends: ['@commitlint/config-conventional'],
@@ -280,7 +280,7 @@ export const COMMITLINT_TEMP = {
   `
 };
 
-export const LINTSTAGED_TEMP = {
+const LINTSTAGED_TEMP = {
   json: `
     {
       "*.{js,cjs,mjs,jsx,ts,tsx,vue}": ["eslint --fix"]
@@ -302,7 +302,7 @@ export const LINTSTAGED_TEMP = {
   `
 };
 
-export const PRETTIER_TEMP = {
+const PRETTIER_TEMP = {
   json: JSON.stringify({
     printWidth: 100,
     tabWidth: 2,
@@ -436,4 +436,12 @@ export const PRETTIER_TEMP = {
     CHANGELOG.md
     LICENSE
   `
+};
+
+module.exports = {
+  ESLINT_TEMPLATE,
+  CHANGELOG_TEMP,
+  COMMITLINT_TEMP,
+  LINTSTAGED_TEMP,
+  PRETTIER_TEMP
 };
