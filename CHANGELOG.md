@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/newObjectccc/bup/compare/v2.0.4...v3.0.2) (2024-03-15)
+
+
+### Bug Fixes
+
+* changelog ([7272bf0](https://github.com/newObjectccc/bup/commit/7272bf0f2de2ff7a7d25f48024eb32ff32d1f6f6))
+* commitlint ([de2b57e](https://github.com/newObjectccc/bup/commit/de2b57eb0620ec8599ee8f0163938cafa0503672))
+* common ([01b984e](https://github.com/newObjectccc/bup/commit/01b984e0507aebb273b5a7f11956b8782c0b0168))
+* eslint ([5d19bee](https://github.com/newObjectccc/bup/commit/5d19bee4cd6e3e79fda6097d92882079818c8fd5))
+* esm to commonjs ([ee8f3b2](https://github.com/newObjectccc/bup/commit/ee8f3b238cd2e292cfcd588df366dc7ab8dfe545))
+* fix js - mjs ([a6091f2](https://github.com/newObjectccc/bup/commit/a6091f241385e34296a06b8480f9bb24cbbe5e56))
+* fix package ([bb348aa](https://github.com/newObjectccc/bup/commit/bb348aaafc9066e166daa8aea798aa8acff2121c))
+* help ([c4a0af3](https://github.com/newObjectccc/bup/commit/c4a0af353cbbdb8cb9b2691331721ded6038f737))
+* lint-staged ([b9e13f7](https://github.com/newObjectccc/bup/commit/b9e13f7d28f4bb51d757030a1a6d3dc288cec5bb))
+* mjs & commit-msg ([21b9b07](https://github.com/newObjectccc/bup/commit/21b9b0732d0eacf06356d74b3ea287880682dc35))
+* prettier ([1d5bc31](https://github.com/newObjectccc/bup/commit/1d5bc312b648799609f2270258eb4567de41ced3))
+
+### [2.0.5](https://github.com/newObjectccc/bup/compare/v2.0.4...v2.0.5) (2024-03-15)
+
+
+### Bug Fixes
+
+* changelog ([7272bf0](https://github.com/newObjectccc/bup/commit/7272bf0f2de2ff7a7d25f48024eb32ff32d1f6f6))
+* commitlint ([de2b57e](https://github.com/newObjectccc/bup/commit/de2b57eb0620ec8599ee8f0163938cafa0503672))
+* common ([01b984e](https://github.com/newObjectccc/bup/commit/01b984e0507aebb273b5a7f11956b8782c0b0168))
+* eslint ([5d19bee](https://github.com/newObjectccc/bup/commit/5d19bee4cd6e3e79fda6097d92882079818c8fd5))
+* esm to commonjs ([ee8f3b2](https://github.com/newObjectccc/bup/commit/ee8f3b238cd2e292cfcd588df366dc7ab8dfe545))
+* fix js - mjs ([a6091f2](https://github.com/newObjectccc/bup/commit/a6091f241385e34296a06b8480f9bb24cbbe5e56))
+* fix package ([bb348aa](https://github.com/newObjectccc/bup/commit/bb348aaafc9066e166daa8aea798aa8acff2121c))
+* help ([c4a0af3](https://github.com/newObjectccc/bup/commit/c4a0af353cbbdb8cb9b2691331721ded6038f737))
+* lint-staged ([b9e13f7](https://github.com/newObjectccc/bup/commit/b9e13f7d28f4bb51d757030a1a6d3dc288cec5bb))
+* mjs & commit-msg ([21b9b07](https://github.com/newObjectccc/bup/commit/21b9b0732d0eacf06356d74b3ea287880682dc35))
+* prettier ([1d5bc31](https://github.com/newObjectccc/bup/commit/1d5bc312b648799609f2270258eb4567de41ced3))
+
 ### [2.0.4](https://github.com/newObjectccc/bup/compare/v2.0.3...v2.0.4) (2024-02-25)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "buildp",
-  "version": "2.0.4",
+  "version": "3.0.2",
   "type": "commonjs",
   "description": "bup is a scaffold for frontend enginer to help you configure your project. progressively and automatically integrate development dependency of your project.",
   "main": "dist/index.js",
