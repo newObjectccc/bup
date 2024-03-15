@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://github.com/newObjectccc/bup/compare/v3.0.3...v3.0.4) (2024-03-15)
+
+
+### Bug Fixes
+
+* commitlint template mjs typo ([151e68a](https://github.com/newObjectccc/bup/commit/151e68a67c2ad5691f9805c77ca33e3c1b4e14cb))
+
 ### [3.0.3](https://github.com/newObjectccc/bup/compare/v1.9.6...v3.0.3) (2024-03-15)
 
 
