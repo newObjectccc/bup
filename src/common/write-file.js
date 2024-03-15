@@ -1,6 +1,6 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import process from 'node:process';
+const path = require('path');
+const fs = require('fs');
+const process = require('process');
 
 function writeRootFileByTemp(temp, filename) {
   return new Promise((resolve, reject) => {
@@ -13,4 +13,4 @@ function writeRootFileByTemp(temp, filename) {
   });
 }
 
-export default writeRootFileByTemp;
+module.exports = writeRootFileByTemp;

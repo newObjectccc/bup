@@ -1,4 +1,4 @@
-import prompts from 'prompts';
+const prompts = require('prompts');
 
 async function choicesPrompt(name, choices) {
   const res = await prompts([
@@ -11,4 +11,5 @@ async function choicesPrompt(name, choices) {
   ]);
   return res;
 }
-export default choicesPrompt;
+
+module.exports = choicesPrompt;

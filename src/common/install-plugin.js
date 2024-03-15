@@ -1,5 +1,5 @@
-import { exec } from 'node:child_process';
-import { CMD_ON_PKG_MANAGER } from '../helper/constant.js';
+const { exec } = require('child_process');
+const { CMD_ON_PKG_MANAGER } = require('../helper/constant.js');
 
 async function installPlugin(options) {
   return new Promise((resolve, reject) => {
@@ -19,4 +19,4 @@ async function installPlugin(options) {
   });
 }
 
-export default installPlugin;
+module.exports = installPlugin;

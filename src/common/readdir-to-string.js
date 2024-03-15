@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+const fs = require('fs');
 
 function readdirToString(dirPath) {
   const result = [];
@@ -11,4 +11,4 @@ function readdirToString(dirPath) {
   return result;
 }
 
-export default readdirToString;
+module.exports = readdirToString;

@@ -1,4 +1,4 @@
-import choicesPrompt from './choices-prompt.js';
+const choicesPrompt = require('./choices-prompt.js');
 
 async function choosePkgMgr() {
   return choicesPrompt('pkgManager', [
@@ -7,4 +7,5 @@ async function choosePkgMgr() {
     { title: 'pnpm', value: 'pnpm' }
   ]);
 }
-export default choosePkgMgr;
+
+module.exports = choosePkgMgr;

@@ -1,4 +1,4 @@
-import { exec } from 'node:child_process';
+const { exec } = require('child_process');
 
 function execCmd({ cmdStr, stdoutHdr, errMsg }) {
   return new Promise((res, rej) => {
@@ -19,4 +19,4 @@ function execCmd({ cmdStr, stdoutHdr, errMsg }) {
   });
 }
 
-export default execCmd;
+module.exports = execCmd;

@@ -1,4 +1,4 @@
-import choicesPrompt from './choices-prompt.js';
+const choicesPrompt = require('./choices-prompt.js');
 
 async function chooseFramework() {
   return choicesPrompt('framework', [
@@ -6,4 +6,5 @@ async function chooseFramework() {
     { title: 'React', value: 'react' }
   ]);
 }
-export default chooseFramework;
+
+module.exports = chooseFramework;

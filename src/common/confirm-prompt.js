@@ -1,4 +1,4 @@
-import prompts from 'prompts';
+const prompts = require('prompts');
 
 // choose prompt or not
 async function confirmPrompt(message) {
@@ -13,4 +13,4 @@ async function confirmPrompt(message) {
   return res;
 }
 
-export default confirmPrompt;
+module.exports = confirmPrompt;
