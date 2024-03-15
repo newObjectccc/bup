@@ -17,22 +17,24 @@ program
   .name('bup')
   .description('bup is help you setting your project development dependencies!')
   .version(`v${packageJson?.version ?? '0.0.1'}`)
-  .command('bup', { isDefault: true })
-  .description('bup --help')
-  .action(() => {
-    program.outputHelp();
-  });
+  .usage('<command>');
 
-program.command('bup commitlint', 'start setting commitlint').action(commitlint.action);
-program.command('bup prettier', 'start setting prettier').action(prettier.action);
-program.command('bup lint-staged', 'start setting lint-staged').action(lintstaged.action);
 program
-  .command('bup changelog', 'start setting changelog')
-  .option(...changelog.option)
+  .command('commitlint')
+  .description('install commitlint and setting commitlint.config.js')
+  .action(commitlint.action);
+program
+  .command('prettier')
+  .description('install prettier and setting .prettierrc')
+  .action(prettier.action);
+program
+  .command('lint-staged')
+  .description('install lint-staged and setting .lintstagedrc')
+  .action(lintstaged.action);
+program
+  .command('changelog')
+  .description('install standard-version and setting .versionrc.js')
   .action(changelog.action);
-program
-  .command('bup eslint', 'start setting eslint')
-  .option(...eslint.option)
-  .action(eslint.action);
+program.command('eslint').description('install eslint and setting .eslintrc').action(eslint.action);
 
 program.parse();

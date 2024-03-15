@@ -14,7 +14,7 @@ const prettier = {
   action: async () => {
     let settingHuskyOra, downloadPluginOra, settingPrettierOra, downloadEslintPlgOra;
     const { startOraWithTemp, stderrHdr, stdoutHdr } = await asyncOutput();
-    const { default: ora } = require('ora');
+    const { default: ora } = await import('ora');
     try {
       if (!isFileExistInRoot('package.json'))
         throw new Error('There is no package.json in the current folder!');

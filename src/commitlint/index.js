@@ -1,13 +1,13 @@
-#! /usr/local/env node
 const choosePkgMgr = require('../common/choose-pkg-manager.js');
 const installPlugin = require('../common/install-plugin.js');
 const isFileExistInRoot = require('../common/is-file-exist.js');
-const { startOraWithTemp, stderrHdr, stdoutHdr } = require('../helper/output.js');
+const asyncOutput = require('../helper/output.js');
 const execSettingHuskyAndCommitlint = require('./commitlint-common.js');
 
 const commitlint = {
   action: async () => {
     let settingCommitlintOra, downloadPluginOra;
+    const { startOraWithTemp, stderrHdr, stdoutHdr } = await asyncOutput();
     try {
       if (!isFileExistInRoot('package.json'))
         throw new Error('There is no package.json in the current folder!');
