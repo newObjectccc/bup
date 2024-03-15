@@ -1,4 +1,4 @@
-![windows-62x62px](https://github.com/newObjectccc/bup/assets/42132586/f69c213d-1707-4fd7-922a-f0a38e62b610) 
+![windows-62x62px](https://github.com/newObjectccc/bup/assets/42132586/f69c213d-1707-4fd7-922a-f0a38e62b610)
 
 # bup
 
@@ -32,33 +32,31 @@ for help:
 bup -h
 ```
 
-for eslint example:
+for eslint:
 
 ```bash
 bup eslint
 ```
 
-then, bup will install the devDeps that eslint needed and opreating .eslintrc file. 
-
-for commitlint example:
+for commitlint:
 
 ```bash
 bup commitlint
 ```
 
-for changelog example:
+for changelog:
 
 ```bash
-bup changelog -c
+bup changelog
 ```
 
-for prettier example:
+for prettier:
 
 ```bash
 bup prettier
 ```
 
-for lint-staged example:
+for lint-staged:
 
 ```bash
 bup lint-staged

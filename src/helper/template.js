@@ -267,7 +267,7 @@ const COMMITLINT_TEMP = {
       // // ignores: [(commit) => commit === ''],
     }
   `,
-  mjd: `
+  mjs: `
     export default {
       extends: ['@commitlint/config-conventional'],
       // 添加你的规则 
