@@ -1,6 +1,7 @@
-![windows-62x62px](https://github.com/newObjectccc/bup/assets/42132586/f69c213d-1707-4fd7-922a-f0a38e62b610)
+![iPhone-180x180px](https://github.com/newObjectccc/bup/assets/42132586/1315acbb-405b-4ba0-8101-cd7c665822e7)
 
 # bup
+
 
 _bup is a scaffold for frontend enginer to help you configure your project. progressively and automatically integrate development dependency of your project._
 
