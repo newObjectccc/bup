@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.2](https://github.com/newObjectccc/bup/compare/v3.1.1...v3.1.2) (2024-04-15)
+
+
+### Bug Fixes
+
+* **npmignore:** ignore commitlint.config ([f24764d](https://github.com/newObjectccc/bup/commit/f24764d179ea04f7ce68c097ed05234ac32968c8))
+
 ### [3.1.1](https://github.com/newObjectccc/bup/compare/v3.1.0...v3.1.1) (2024-04-15)
 
 
