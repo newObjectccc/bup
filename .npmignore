@@ -4,7 +4,7 @@ node_modules/
 .lintstagedrc.*
 .gitignore
 .npmignore
-commitlint.config.js
+commitlint.config.*
 pnpm-lock.*
 src/*
 .prettierrc.*
