@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/newObjectccc/bup/compare/v3.0.2...v3.1.0) (2024-04-15)
+
+
+### Features
+
+* boilerplate install feature done! ([3fa356a](https://github.com/newObjectccc/bup/commit/3fa356a3c63fad1b0311cf4d068d06c199edecfe))
+
+
+### Bug Fixes
+
+* **boilerplate:** update git initial ([2209deb](https://github.com/newObjectccc/bup/commit/2209deb92799f381e4b5e798ce8dc506841be07b))
+* **exec-cmd:** fix err msg ([7963df8](https://github.com/newObjectccc/bup/commit/7963df873b0891cf1e165840fb96ba9007a0b383))
+* update ([7152daf](https://github.com/newObjectccc/bup/commit/7152daff347a351d3e5611d90c6f775529dbda6a))
+
 ### [3.0.2](https://github.com/newObjectccc/bup/compare/v2.0.4...v3.0.2) (2024-03-15)
 
 
