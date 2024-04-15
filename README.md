@@ -1,6 +1,7 @@
-![windows-62x62px](https://github.com/newObjectccc/bup/assets/42132586/f69c213d-1707-4fd7-922a-f0a38e62b610) 
+![iPhone-180x180px](https://github.com/newObjectccc/bup/assets/42132586/1315acbb-405b-4ba0-8101-cd7c665822e7)
 
 # bup
+
 
 _bup is a scaffold for frontend enginer to help you configure your project. progressively and automatically integrate development dependency of your project._
 
@@ -32,33 +33,31 @@ for help:
 bup -h
 ```
 
-for eslint example:
+for eslint:
 
 ```bash
 bup eslint
 ```
 
-then, bup will install the devDeps that eslint needed and opreating .eslintrc file. 
-
-for commitlint example:
+for commitlint:
 
 ```bash
 bup commitlint
 ```
 
-for changelog example:
+for changelog:
 
 ```bash
-bup changelog -c
+bup changelog
 ```
 
-for prettier example:
+for prettier:
 
 ```bash
 bup prettier
 ```
 
-for lint-staged example:
+for lint-staged:
 
 ```bash
 bup lint-staged
