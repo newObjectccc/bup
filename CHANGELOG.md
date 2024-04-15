@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/newObjectccc/bup/compare/v3.1.0...v3.1.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* commitlint template mjs typo ([151e68a](https://github.com/newObjectccc/bup/commit/151e68a67c2ad5691f9805c77ca33e3c1b4e14cb))
+* eslint bug ([3cb79f6](https://github.com/newObjectccc/bup/commit/3cb79f6618f1ec23bb9863565f7615feff7cea77))
+
 ## [3.1.0](https://github.com/newObjectccc/bup/compare/v3.0.2...v3.1.0) (2024-04-15)
 
 ### Features
