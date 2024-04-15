@@ -13,7 +13,7 @@ function execCmd({ cmdStr, stdoutHdr, errMsg }) {
         res(`perform command succeed!`);
       } else {
         oraCtx?.fail();
-        rej(errMsg ?? 'Something went wrong!');
+        rej(errMsg ?? `[ErrCode]: ${code}, Something went wrong!`);
       }
     });
   });
