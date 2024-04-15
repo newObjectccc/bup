@@ -8,6 +8,7 @@ const commitlint = require('./commitlint/index.js');
 const eslint = require('./eslint/index.js');
 const prettier = require('./prettier/index.js');
 const lintstaged = require('./lint-staged/index.js');
+const boilerplate = require('./boilerplate/index.js');
 const program = new Command();
 
 const pkgPath = path.resolve(path.join(__dirname, '../package.json'));
@@ -36,5 +37,9 @@ program
   .description('install standard-version and setting .versionrc.js')
   .action(changelog.action);
 program.command('eslint').description('install eslint and setting .eslintrc').action(eslint.action);
+program
+  .command('boilerplate')
+  .description('install boilerplate with preset that you want')
+  .action(boilerplate.action);
 
 program.parse();
